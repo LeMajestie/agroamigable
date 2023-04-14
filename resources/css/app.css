@@ -1,3 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@font-face{
+    font-family:'Hk-Grotesk';
+    src: url('/fonts/HankenGrotesk-VariableFont_wght.ttf')
+}
+.separator
+{
+    background: linear-gradient(
+    to top,
+    rgba(35,63,10,1) 0%,
+    rgba(35,63,10,1) 50%,
+    rgba(211,232,173,0) 50%,
+    rgba(211,232,173,0) 100% );
+}
+
+.separator2
+{
+    background: linear-gradient(
+    to top,
+    rgba(35,63,10,0) 0%,
+    rgba(35,63,10,0) 50%,
+    rgba(35,63,10,1) 50%,
+    rgba(35,63,10,1) 100% );
+}
+
+.separator3
+{
+    background: linear-gradient(
+    to top,
+    rgba(169,211,95,0) 0%,
+    rgba(169,211,95,0) 50%,
+    rgba(169,211,95,1) 50%,
+    rgba(169,211,95,1) 100% );
+}
+
+.separator3
+{
+    background: linear-gradient(
+    to top,
+    rgba(169,211,95,0) 0%,
+    rgba(169,211,95,0) 50%,
+    rgba(169,211,95,1) 50%,
+    rgba(169,211,95,1) 100% );
+}
+
+.bookbackward
+{
+  background-image: radial-gradient(closest-side at 65% 50%, rgba(169,211,95,1) 2%, rgba(35,63,10,1) 80%);
+}
+
+.bookbackward-sm
+{
+  background-image: radial-gradient(closest-side at 50% 50%, rgba(169,211,95,1) 2%, rgba(35,63,10,1) 90%);
+}
+
+.autorsbackward
+{
+  background-image: radial-gradient(closest-side at 65% 50%, white 2%, rgba(169,211,95,1) 80%);
+}
+
