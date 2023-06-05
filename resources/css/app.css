@@ -51,7 +51,7 @@
 
 .bookbackward
 {
-  background-image: radial-gradient(closest-side at 65% 50%, rgba(169,211,95,1) 2%, rgba(35,63,10,1) 80%);
+  background-image: radial-gradient(closest-side at 50% 50%, rgba(169,211,95,1) 2%, rgba(35,63,10,1) 80%);
 }
 
 .bookbackward-sm

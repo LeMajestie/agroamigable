@@ -1,7 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +11,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('books', BookController::class)->withoutMiddleware(['web']);
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'home']);
+
+Route::get('/1', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'getstates']);
 
 Route::middleware([
     'auth:sanctum',
