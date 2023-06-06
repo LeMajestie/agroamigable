@@ -9,6 +9,12 @@ use Psy\Readline\Hoa\Console;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use WisdomDiala\Countrypkg\Models\Country;
+use WisdomDiala\Countrypkg\Models\State;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Redirect;
+
+
 
 class BookController extends Controller
 {
@@ -40,7 +46,6 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-
         $validator = Validator::make(request()->all(), [
             'name' => 'required',
             'email' => 'required',
@@ -51,31 +56,22 @@ class BookController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $countries = Country::all();
+            Session::flash('create_category_error', "true");
 
-            return redirect()->back()->with('modelOpen', true)->withErrors($validator)->withInput($request->all());
+            //$flashVariable = Session::get('create_category_error');
+            //return view('home', compact('countries'))->with('flashVariable', $flashVariable));
+
+            return Redirect::back()->withInput($request->input())->withErrors($validator); // Set the error message
         }
 
+        Book::create($request->input());
         return response()->download(public_path('/AgroAmigable.pdf'));
     }
 
     public function getDownload()
     {
-        try {
-            $headers = [
-                'Content-Type' => 'application/pdf',
-            ];
 
-            $pathToFile = "/AgroAmigable.pdf";
-            $name = "AgroAmigable.pdf";
-
-            return response()->download(public_path('/AgroAmigable.pdf'));
-        } catch (\Exception $e) {
-            // Log the exception
-            Log::error('Exception occurred: ' . $e->getMessage());
-
-            // Return an error response
-            return response()->json(['error' => 'An error occurred'], 500);
-        }
     }
     /**
      * Display the specified resource.

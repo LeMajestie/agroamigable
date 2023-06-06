@@ -11,7 +11,9 @@ use App\Http\Controllers\BookController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('books', BookController::class)->withoutMiddleware(['web']);
+Route::get('/show-flash-variable', [App\Http\Controllers\BookController::class, 'getDownload']);
+
+Route::resource('books', BookController::class);
 
 Route::get('/', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'home']);
 
