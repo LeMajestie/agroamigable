@@ -77,8 +77,8 @@
                                 value="{{ old('email') }}"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                             @error('email')
-                                <x-incomplete-form-error : message={{$message}} />
-                                </x-incomplete-form-error : message={{$message}} >
+                                <x-incomplete-form-error : message={{ $message }} />
+                                </x-incomplete-form-error : message={{ $message }}>
                             @enderror
                         </div>
                     </div>
@@ -89,8 +89,8 @@
                             <input placeholder="" type="number" name="phone" value="{{ old('phone') }}"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                             @error('phone')
-                                <x-incomplete-form-error : message={{$message}} />
-                                </x-incomplete-form-error : message={{$message}} >
+                                <x-incomplete-form-error : message={{ $message }} />
+                                </x-incomplete-form-error : message={{ $message }}>
                             @enderror
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         <div class="mt-4">
                             <label for="country"
                                 class="block text-sm text-gray-700 capitalize dark:text-gray-200">País</label>
-                            <select name="country" id="country"
+                            <select name="country" id="country" class="country"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                 placeholder="Seleccione país">
                                 <option selected="" value="">Seleccione País</option>
@@ -107,8 +107,8 @@
                                 @endforeach
                             </select>
                             @error('country')
-                                <x-incomplete-form-error : message={{$message}} />
-                                </x-incomplete-form-error : message={{$message}} >
+                                <x-incomplete-form-error : message={{ $message }} />
+                                </x-incomplete-form-error : message={{ $message }}>
                             @enderror
                         </div>
                     </div>
@@ -116,14 +116,14 @@
                         <div class="mt-4">
                             <label for="state"
                                 class="block text-sm text-gray-700 capitalize dark:text-gray-200">Región</label>
-                            <select name="region" id="region"
+                            <select name="region" id="region" class="region"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                 placeholder="Seleccione región">
                                 <option selected="" value="">Seleccione Región</option>
                             </select>
                             @error('region')
-                                <x-incomplete-form-error : message={{$message}} />
-                                </x-incomplete-form-error : message={{$message}} >
+                                <x-incomplete-form-error : message={{ $message }} />
+                                </x-incomplete-form-error : message={{ $message }}>
                             @enderror
                         </div>
                     </div>
@@ -134,8 +134,8 @@
                             <input placeholder="" name="city" value="{{ old('city') }}"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                             @error('city')
-                                <x-incomplete-form-error : message={{$message}} />
-                                </x-incomplete-form-error : message={{$message}} >
+                                <x-incomplete-form-error : message={{ $message }} />
+                                </x-incomplete-form-error : message={{ $message }}>
                             @enderror
                         </div>
 
@@ -150,15 +150,25 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function() {
-            $("#country").change(function() {
+            var regions = document.querySelectorAll(".region");
+            var countries = document.querySelectorAll(".country")
+
+            console.log(regions);
+            console.log(countries);
+
+            $(".country").change(function() {
+                console.log("Cambió país");
                 let country_id = this.value;
+                console.log("por:"+country_id);
                 $.get('/1?country=' + country_id, function(data) {
-                    $("#region").html(data);
+                    console.log("sus ciudades son: "+ data);
+                    $(".region").html(data);
                 })
             })
         })

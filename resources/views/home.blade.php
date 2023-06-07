@@ -19,12 +19,17 @@
                     cual plantea que '“'en suelos sanos, cultivos sanos, y en suelo sanos, las plagas se morirán de
                     hambre'”'. Francis Chauboussou">
                 </x-agroamigable.text-structures.article>
-
-                <x-agroamigable.button-structures.button-group>
-                </x-agroamigable.button-structures.button-group>
-
-                <x-agroamigable.buttons.basic-button contenido="hola">
-                </x-agroamigable.buttons.basic-button>
+                <div class="hidden w-full h-auto lg:flex justify-center items-center gap-6 p-12">
+                    <div class=""><a
+                            class="rounded-full bg-orange-c500 border-2 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4"
+                            href="https://agroamigable.co/dashboard">
+                            Contactar
+                        </a></div>
+                    <div class=""> <a
+                            class="rounded-full border-2 border-lime-c900 hover:bg-lime-c900 hover:text-white text-lime-c900 text-xl p-4"
+                            href="https://agroamigable.co/dashboard">
+                            Quiero saber más</a></div>
+                </div>
             </div>
             <div class="lg:w-1/3 h-full">
             </div>
@@ -49,28 +54,6 @@
         </div>
 
     </div>
-
-    <div class="book-sm lg:hidden bg-lime-c900 flex-col relative z-50 p-6">
-        <div class="bookbackward-sm">
-            <img class="scale-75" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}" alt="Image" />
-        </div>
-        <div class="text-right">
-            <div class="subtext text-lime-300 font-bold text-xl text-center py-2">Descarga el libro
-                digital y gratuito</div>
-            <div class="main-title text-lime-300 font-semibold text-3xl text-center py-6">"Agro Amigable
-                con el Medio Ambiente"
-            </div>
-            <div class="paragraph text-center lg:text-right text-lime-300">
-                Una visión del desarrollo económico y social, el cual reúne numerosas experiencias de los autores
-                implementando esta metodología con proyectos de cooperación internacional con excelentes resultados en
-                múltiples países de Hispano América.
-            </div>
-            <div class="buttons flex justify-around p-4">
-                <x-button-popup :countries=$countries />
-                </x-button-popup :countries=$countries>
-            </div>
-        </div>
-    </div>
     <div class="book-lg bg-lime-c900 flex justify-around relative z-50 lg:p-16">
         <div class="w-1/2 hidden lg:block bookbackward">
             <img class="scale-90 lg:scale-[0.8] pl-16" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}"
@@ -93,6 +76,27 @@
                 </x-button-popup :countries=$countries>
             </div>
 
+        </div>
+    </div>
+    <div class="book-sm lg:hidden bg-lime-c900 flex-col relative z-50 p-6">
+        <div class="bookbackward-sm">
+            <img class="scale-75" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}" alt="Image" />
+        </div>
+        <div class="text-right">
+            <div class="subtext text-lime-300 font-bold text-xl text-center py-2">Descarga el libro
+                digital y gratuito</div>
+            <div class="main-title text-lime-300 font-semibold text-3xl text-center py-6">"Agro Amigable
+                con el Medio Ambiente"
+            </div>
+            <div class="paragraph text-center lg:text-right text-lime-300">
+                Una visión del desarrollo económico y social, el cual reúne numerosas experiencias de los autores
+                implementando esta metodología con proyectos de cooperación internacional con excelentes resultados en
+                múltiples países de Hispano América.
+            </div>
+            <div class="buttons flex justify-around p-4">
+                <x-button-popup :countries=$countries />
+                </x-button-popup :countries=$countries>
+            </div>
         </div>
     </div>
     <div class="advisory-sm bg-lime-c500">
