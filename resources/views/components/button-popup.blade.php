@@ -77,8 +77,7 @@
                                 value="{{ old('email') }}"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                             @error('email')
-                                <x-incomplete-form-error : message={{ $message }} />
-                                </x-incomplete-form-error : message={{ $message }}>
+                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
                             @enderror
                         </div>
                     </div>
@@ -89,8 +88,7 @@
                             <input placeholder="" type="number" name="phone" value="{{ old('phone') }}"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                             @error('phone')
-                                <x-incomplete-form-error : message={{ $message }} />
-                                </x-incomplete-form-error : message={{ $message }}>
+                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
                             @enderror
                         </div>
                     </div>
@@ -98,8 +96,7 @@
                         <div class="mt-4">
                             <label for="country"
                                 class="block text-sm text-gray-700 capitalize dark:text-gray-200">País</label>
-                            <select name="country" id="country" class="country"
-                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                            <select name="country" id="country" class="country block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                 placeholder="Seleccione país">
                                 <option selected="" value="">Seleccione País</option>
                                 @foreach ($countries as $country)
@@ -107,8 +104,7 @@
                                 @endforeach
                             </select>
                             @error('country')
-                                <x-incomplete-form-error : message={{ $message }} />
-                                </x-incomplete-form-error : message={{ $message }}>
+                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
                             @enderror
                         </div>
                     </div>
@@ -116,14 +112,12 @@
                         <div class="mt-4">
                             <label for="state"
                                 class="block text-sm text-gray-700 capitalize dark:text-gray-200">Región</label>
-                            <select name="region" id="region" class="region"
-                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                            <select name="region" id="region" class="region block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                 placeholder="Seleccione región">
                                 <option selected="" value="">Seleccione Región</option>
                             </select>
                             @error('region')
-                                <x-incomplete-form-error : message={{ $message }} />
-                                </x-incomplete-form-error : message={{ $message }}>
+                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
                             @enderror
                         </div>
                     </div>
@@ -134,8 +128,7 @@
                             <input placeholder="" name="city" value="{{ old('city') }}"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                             @error('city')
-                                <x-incomplete-form-error : message={{ $message }} />
-                                </x-incomplete-form-error : message={{ $message }}>
+                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
                             @enderror
                         </div>
 
@@ -165,9 +158,9 @@
             $(".country").change(function() {
                 console.log("Cambió país");
                 let country_id = this.value;
-                console.log("por:"+country_id);
+                console.log("por:" + country_id);
                 $.get('/1?country=' + country_id, function(data) {
-                    console.log("sus ciudades son: "+ data);
+                    console.log("sus ciudades son: " + data);
                     $(".region").html(data);
                 })
             })
