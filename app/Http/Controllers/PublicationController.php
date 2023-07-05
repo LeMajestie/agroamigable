@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Publication;
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class PublicationController extends Controller
 {
@@ -14,7 +16,8 @@ class PublicationController extends Controller
     */
     public function index()
     {
-        $publications = Publication::orderBy('id','desc')->paginate(5);
+        Log::debug('An informational message.');
+        $publications = publication::orderBy('id','desc')->paginate(5);
         return view('publications.index', compact('publications'));
     }
 
@@ -36,6 +39,30 @@ class PublicationController extends Controller
     */
     public function store(Request $request)
     {
+        Log::debug('An informational message.');
+        if($request->hasFile('image'))
+        {
+            Log::debug('An informational message.');
+            $file=$request->file('image');
+            $extention=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extention;
+            //$file->move('/images/publications_images/',$filename);
+
+            try {
+                // Code that may throw an exception
+                $file->move(public_path('/images/publications_images'),$filename);
+                //$request->image->move(url('/images'), $filename);
+                // public/images/file.png
+                // ...
+            } catch (Exception $e) {
+                // Exception handling code
+                Log::debug($e->getMessage());
+                // ...
+            }
+
+            $request['image']=$filename;
+        }
+
         $request->validate([
             'name' => 'required',
             'slug' => 'required',
@@ -48,41 +75,41 @@ class PublicationController extends Controller
             'author' => 'required',
         ]);
 
-        Publication::create($request->post());
+        publication::create($request->post());
 
-        return redirect()->route('publications.index')->with('success','Publication has been created successfully.');
+        return redirect()->route('publications.index')->with('success','publication has been created successfully.');
     }
 
     /**
     * Display the specified resource.
     *
-    * @param  \App\Publication  $Publication
+    * @param  \App\publication  $publication
     * @return \Illuminate\Http\Response
     */
-    public function show(Publication $Publication)
+    public function show(publication $publication)
     {
-        return view('publications.show',compact('Publication'));
+        return view('publications.show',compact('publication'));
     }
 
     /**
     * Show the form for editing the specified resource.
     *
-    * @param  \App\Publication  $Publication
+    * @param  \App\publication  $publication
     * @return \Illuminate\Http\Response
     */
-    public function edit(Publication $Publication)
+    public function edit(publication $publication)
     {
-        return view('publications.edit',compact('Publication'));
+        return view('publications.edit',compact('publication'));
     }
 
     /**
     * Update the specified resource in storage.
     *
     * @param  \Illuminate\Http\Request  $request
-    * @param  \App\Publication  $Publication
+    * @param  \App\publication  $publication
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, Publication $Publication)
+    public function update(Request $request, publication $publication)
     {
         $request->validate([
             'name' => 'required',
@@ -96,20 +123,20 @@ class PublicationController extends Controller
             'author' => 'required',
         ]);
 
-        $Publication->fill($request->post())->save();
+        $publication->fill($request->post())->save();
 
-        return redirect()->route('publications.index')->with('success','Publication Has Been updated successfully');
+        return redirect()->route('publications.index')->with('success','publication Has Been updated successfully');
     }
 
     /**
     * Remove the specified resource from storage.
     *
-    * @param  \App\Publication  $Publication
+    * @param  \App\publication  $publication
     * @return \Illuminate\Http\Response
     */
-    public function destroy(Publication $Publication)
+    public function destroy(publication $publication)
     {
-        $Publication->delete();
-        return redirect()->route('publications.index')->with('success','Publication has been deleted successfully');
+        $publication->delete();
+        return redirect()->route('publications.index')->with('success','publication has been deleted successfully');
     }
 }
