@@ -66,7 +66,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>image</strong>
-                        <input type="text" name="image" class="form-control" placeholder="publication Address">
+                        <input type="file" name="image" class="form-control" placeholder="publication Address">
                         @error('image')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -84,7 +84,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>published</strong>
-                        <input type="text" name="published" class="form-control" placeholder="publication Address">
+                        <input type="date" name="published" class="form-control" placeholder="publication Address">
                         @error('published')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -93,7 +93,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>color</strong>
-                        <input type="text" name="color" class="form-control" placeholder="publication Address">
+                        <input type="color" name="color" class="form-control" placeholder="publication Address">
                         @error('color')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -102,7 +102,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>author</strong>
-                        <input type="text" name="author" class="form-control" placeholder="publication Address">
+                        <input type="text" name="author" class="form-control" placeholder="publication Address" value="Ferley Henao Ospina">
                         @error('author')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

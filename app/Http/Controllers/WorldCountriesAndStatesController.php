@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use WisdomDiala\Countrypkg\Models\Country;
 use WisdomDiala\Countrypkg\Models\State;
+use App\Models\Publication;
 
 class WorldCountriesAndStatesController extends Controller
 {
     public function home()
     {
+        $publications = publication::orderBy('id','desc')->paginate(5);
         $countries = Country::all();
-        return view('home', compact('countries'));
+        return view('home', compact('countries'), compact('publications'));
+    }
+
+    public function publications()
+    {
+        $publications = publication::orderBy('id','desc')->paginate(5);
+        return view('blog', compact('publications'));
     }
 
 

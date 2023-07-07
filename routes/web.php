@@ -22,6 +22,8 @@ Route::get('/blog', function () {
     return view('blog.index');
 });
 
+Route::get('/Blog', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publications']);
+
 Route::get('/', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'home']);
 
 Route::get('/1', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'getstates']);

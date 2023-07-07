@@ -25,9 +25,9 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>S.No</th>
+                    <th>Id Pub</th>
                     <th>Name</th>
-                    <th>slug</th>
+                    <th>Slugs</th>
                     <th>body</th>
                     <th>abstract</th>
                     <th>image</th>
