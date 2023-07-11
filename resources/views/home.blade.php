@@ -9,26 +9,24 @@
 
 <body>
     <div class="home bg-gradient-to-tl from-lime-c100 to-white">
+        <!-- NAVBAR -->
         <x-navbar></x-navbar>
+        <!-- END NAVBAR -->
+        <!-- SECTION: INTRODUCTION -->
         <div class="flex w-full">
-            <div class="lg:w-2/3 lg:p-16 lg:pl-32 lg:pr-24 p-6">
-                <x-agroamigable.text-structures.article color="text-lime-c900" hashtag="Innovación Agrícola"
-                    title="Agricultura limpia, eficiente y rentable"
+            <div class="lg:w-2/3 lg:py-16 lg:pt-10 lg:px-24 p-6">
+                <x-agroamigable.text-structures.article alignment="text-center lg:text-left" color="text-lime-c900"
+                    hashtag="Innovación Agrícola" title="Agricultura limpia, eficiente y rentable"
                     content="Cultivos sin plagas, ¿es posible?. Sí, es posible la innovación agrícola con nuestra experiencia de
                     más de 20 años (desde 1999), implementado metodologías que incluyen la teoría de la Trofobiosis, la
                     cual plantea que '“'en suelos sanos, cultivos sanos, y en suelo sanos, las plagas se morirán de
                     hambre'”'. Francis Chauboussou">
                 </x-agroamigable.text-structures.article>
-                <div class="hidden w-full h-auto lg:flex justify-center items-center gap-6 p-12">
-                    <div class=""><a
-                            class="rounded-full bg-orange-c500 border-2 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4"
-                            href="https://wa.me/+573133811612">
-                            Contactar
-                        </a></div>
-                    <div class=""> <a
-                            class="rounded-full border-2 border-lime-c900 hover:bg-lime-c900 hover:text-white text-lime-c900 text-xl p-4"
-                            href="https://wa.me/+573133811612">
-                            Quiero saber más</a></div>
+                <div class="w-full h-auto flex justify-center items-center gap-6 p-6 flex-col lg:flex-row">
+                    <x-agroamigable.buttons.orange-button href="https://wa.me/+573133811612" label="Contactar">
+                    </x-agroamigable.buttons.orange-button>
+                    <x-agroamigable.buttons.translucid-button href="https://wa.me/+573133811612"
+                        label="Quiero saber más"></x-agroamigable.buttons.translucid-button>
                 </div>
             </div>
             <div class="lg:w-1/3 h-full">
@@ -40,281 +38,95 @@
             <img class="lg:hidden z-10 pt-3" src="{{ url('/images/background-image-espaciador.png') }}"
                 alt="Image" />
         </div>
-        <div class="overflow-x-hidden relative z-50">
-            <div class="separator flex justify-star">
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-            </div>
-        </div>
+        <x-agroamigable.separators.lime-c900></x-agroamigable.separators.lime-c900>
     </div>
-    <div class="book-lg bg-lime-c900 flex justify-around relative z-50 lg:p-16">
-        <div class="w-1/2 hidden lg:block bookbackward">
-            <div class="flex justify-center">
-                <img class="scale-90 lg:scale-[0.8] content-center"
-                    src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}" alt="Image" />
-            </div>
-        </div>
-        <div class="w-1/2 hidden lg:block p-6 text-right">
-            <div class="subtext py-6 text-lime-300 font-bold text-xl text-center lg:text-right"> Descarga el libro
-                digital y gratuito</div>
-            <div class="main-title py-6 text-lime-300 font-semibold text-5xl text-center lg:text-right">"Agro Amigable
+    <!-- END SECTION: INTRODUCTION -->
+    <!-- SECTION: BOOK -->
+    <div class="bg-lime-c900 relative z-50 lg:px-24 lg:flex w-full">
+        <img class="lg:w-1/3 scale-90 lg:scale-90 center" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}"
+            alt="Image" />
+        <div class="lg:w-2/3 p-6">
+            <x-agroamigable.text-structures.article alignment="text-center lg:text-right" color="text-lime-300"
+                hashtag="Descarga el libro
+                digital y gratuito"
+                title="Agro
+                Amigable
                 con el Medio Ambiente"
-            </div>
-            <div class="paragraph py-6 text-center lg:text-right text-lime-300">
-                Una visión del desarrollo económico y social, el cual reúne numerosas experiencias de los autores
-                implementando esta metodología con proyectos de cooperación internacional con excelentes resultados en
-                múltiples países de Hispano América.
-            </div>
+                content="Una visión del desarrollo económico y social, el cual reúne numerosas experiencias de los autores
+                implementando esta metodología con proyectos de cooperación internacional con excelentes resultados
+                en
+                múltiples países de Hispano América.">
+            </x-agroamigable.text-structures.article>
             <div class="buttons flex justify-around p-4">
                 <x-button-popup :countries=$countries />
                 </x-button-popup :countries=$countries>
             </div>
         </div>
     </div>
-    <div class="book-sm lg:hidden bg-lime-c900 flex-col relative z-50 p-6">
-        <div class="bookbackward-sm">
-            <img class="scale-75" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}" alt="Image" />
-        </div>
-        <div class="text-right">
-            <div class="subtext text-lime-300 font-bold text-xl text-center py-2">Descarga el libro
-                digital y gratuito</div>
-            <div class="main-title text-lime-300 font-semibold text-3xl text-center py-6">"Agro Amigable
-                con el Medio Ambiente"
-            </div>
-            <div class="paragraph text-center lg:text-right text-lime-300">
-                Una visión del desarrollo económico y social, el cual reúne numerosas experiencias de los autores
-                implementando esta metodología con proyectos de cooperación internacional con excelentes resultados en
-                múltiples países de Hispano América.
-            </div>
-            <div class="buttons flex justify-around p-4">
-                <x-button-popup :countries=$countries />
-                </x-button-popup :countries=$countries>
-            </div>
-        </div>
-    </div>
-    <div class="advisory-sm bg-lime-c500">
-        <div class="overflow-x-hidden">
-            <div class="separator2 flex justify-star">
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector.png') }}" alt="Image" />
-            </div>
-        </div>
-        <div class="lg:hidden flex-col justify-around">
-            <div class="p-6">
-                <div class="subtext py-2 text-lime-c900 font-bold text-xl text-center">Reserva tu asesoría</div>
-                <div class="main-title py-2 text-lime-c900 font-bold text-3xl text-center">Reserva hoy mismo tu
+    <!-- END SECTION: BOOK -->
+    <!-- SECTION: ABOUT US -->
+    <div class="bg-lime-c500 ">
+        <x-agroamigable.separators.lime-c500></x-agroamigable.separators.lime-c500>
+        <div class="lg:px-24 p-6 lg:flex lg:items-center lg:justify-center w-full">
+            <div class="lg:w-1/2">
+                <x-agroamigable.text-structures.article alignment="text-center lg:text-left" color="text-lime-c900"
+                    hashtag="Reserva tu asesoría"
+                    title="Reserva hoy mismo tu
                     asesoría virtual o
-                    presencial con los autores del libro.
+                    presencial con los autores del libro."
+                    content="Tenemos agenda abierta para que agendes tu asesoría 1 a 1 con nuestros expertos, para que comiences
+                    a transformar exponencialmente tu producción agrícola.">
+                </x-agroamigable.text-structures.article>
+                <div class="w-full h-auto flex justify-center items-center gap-6 p-6 flex-col lg:flex-row">
+                    <x-agroamigable.buttons.orange-button href="https://wa.me/+573133811612" label="Contactar">
+                    </x-agroamigable.buttons.orange-button>
+                    <x-agroamigable.buttons.translucid-button href="https://wa.me/+573133811612"
+                        label="Quiero saber más"></x-agroamigable.buttons.translucid-button>
                 </div>
-                <div class="paragraph py-6 text-lime-c900 text-center">
-                    Tenemos agenda abierta para que agendes tu asesoría 1 a 1 con nuestros expertos, para que comiences
-                    a transformar exponencialmente tu producción agrícola.
-                </div>
-                <div class="lg:hidden w-full h-auto flex justify-center items-center gap-6 p-2">
-                    <div class="flex-col justify-center items-center">
-                        <div class="py-2 flex justify-center items-center">
-                            <a class="flex justify-center items-center rounded-full bg-orange-c500 border-2 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-lg p-4 py-3"
-                                href="https://wa.me/+573133811612">
-                                Reservar cita ahora
-                            </a>
-                        </div>
-                        <div class="py-2 flex justify-center items-center">
-                            <a class="flex justify-center items-center rounded-full border-2 border-lime-c900 text-lime-c900 text-lg p-4 py-3 hover:bg-lime-c900 hover:text-white"
-                                href="https://wa.me/+573133811612">
-                                Sobre nosotros
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
             </div>
-            <div class=""><img class="autorsbackward" src="{{ url('/images/autors.png') }}" alt="Image" />
-            </div>
-        </div>
-        <div class="advisory-lg flex justify-around">
-            <div class="hidden lg:block w-1/2 p-16">
-                <div class="subtext py-6 text-lime-c900 font-bold text-xl">Reserva tu asesoría</div>
-                <div class="main-title py-6 text-lime-c900 font-bold text-5xl">Reserva hoy mismo tu asesoría virtual o
-                    presencial con los autores del libro.
-                </div>
-                <div class="paragraph py-6 text-lime-c900">
-                    Tenemos agenda abierta para que agendes tu asesoría 1 a 1 con nuestros expertos, para que comiences
-                    a transformar exponencialmente tu producción agrícola.
-                </div>
-                <div class="buttons flex justify-around p-4">
-                    <a class="rounded-full bg-orange-c500 text-white text-xl border-2 border-orange-c500 hover:bg-transparent hover:text-orange-c500 p-4"
-                        href="https://wa.me/+573133811612">
-                        Reservar
-                        cita ahora</a>
-                    <a class="rounded-full border-2 border-lime-c900 text-lime-c900 text-xl p-4 hover:bg-lime-c900 hover:text-white"
-                        href="https://wa.me/+573133811612">
-                        Sobre nosotros</a>
-                </div>
-            </div>
-            <div class="hidden lg:block w-1/2"><img class="autorsbackward" src="{{ url('/images/autors.png') }}"
-                    alt="Image" />
+            <div class="lg:w-1/2"><img class="" src="{{ url('/images/autors.png') }}" alt="Image" />
             </div>
         </div>
     </div>
-    <div class="comments bg-lime-c100">
-        <div class="overflow-x-hidden">
-            <div class="separator3 flex justify-star">
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector 2.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector 2.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector 2.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector 2.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector 2.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector 2.png') }}" alt="Image" />
-                <img class="h-16 lg:h-32" src="{{ url('/images/Vector 2.png') }}" alt="Image" />
-            </div>
-        </div>
-        <div class="testimonials-sm lg:hidden flex-col justify-around">
-            <div class="p-6 lg:p-24 ">
-                <div class="py-6">
-                    <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
-                        <div class="sm:flex sm:items-center px-6 py-4">
-                            <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
-                                src="{{ url('/images/PHOTO-2023-06-07-21-00-39.jpg') }}" alt="">
-                            <div class="text-center sm:text-left sm:flex-grow">
-                                <div class="mb-4">
-                                    <p class="text-xl leading-tight">Alejandro RodrÍguez</p>
-                                    <p class="text-sm leading-tight text-gray-400">Finca Los Haticos Guarico, Moran,
-                                        Lara, Venezuela pasó a producir sus propios abonos orgánicos para los cultivos
-                                        de hortalizas y también desarrolló un exitoso programa Agroturistico.</p>
-                                </div>
-                                <div>
-                                    <x-button-popup-video>
-                                    </x-button-popup-video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
-                    <div class="sm:flex sm:items-center px-6 py-4">
-                        <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
-                            src="{{ url('/images/man.png') }}" alt="">
-                        <div class="text-center sm:text-left sm:flex-grow">
-                            <div class="mb-4">
-                                <p class="text-xl leading-tight">Luis Fernando Pérez de Buga</p>
-                                <p class="text-sm leading-tight text-gray-400">Valle, Colombia hizo el proceso de
+    <!-- END SECTION: ABOUT US -->
+    <!-- SECTION: CLIENTS TESTIMONIALS -->
+    <div class="bg-lime-c100 ">
+        <x-agroamigable.separators.lime-c100></x-agroamigable.separators.lime-c100>
+        <div class="lg:px-24 p-6 lg:flex lg:items-center lg:justify-center w-full">
+            <div class="lg:w-1/2 pr-2 grid gap-4">
+                <x-agroamigable.boxes.testimony witness="Alejandro Rodríguez"
+                    location="Finca Los Haticos Guarico, Moran,
+                        Lara, Venezuela"
+                    body="Pasó a producir sus propios abonos orgánicos para los cultivos
+                        de hortalizas y también desarrolló un exitoso programa Agroturistico."
+                    imageUrl="/images/PHOTO-2023-06-07-21-00-39.jpg"
+                    videoUrl="https://www.youtube.com/embed/aumZYzr8czs"></x-agroamigable.boxes.testimony>
+                <x-agroamigable.boxes.testimony witness="Luis Fernando Pérez de Buga" location="Valle, Colombia"
+                    body="Hizo el proceso de
                                     diversificación escalonada de café, inicialmente a Plátano y banano. Hoy su Granja
                                     Villa del Lago en la Verada Monterrey es un ejemplo de diversificación y
-                                    competitividad.</p>
-                            </div>
-                            <div>
-                                <button
-                                    class="text-xs font-semibold rounded-full px-4 py-1 leading-normal border-2 border-purple-400 text-purple hover:bg-purple-400 hover:text-white"><a
-                                        href="https://www.youtube.com/watch?v=V6sRPjYf_XY">Escuchar</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    competitividad."
+                    imageUrl="/images/man.png" videoUrl="https://www.youtube.com/embed/aumZYzr8czs">
+                </x-agroamigable.boxes.testimony>
             </div>
-            <div class="p-6">
-                <div class="subtext py-2 text-lime-c900 font-bold text-xl text-center">Testimonios</div>
-                <div class="main-title py-2 text-lime-c900 font-bold text-3xl text-center">Lo que dicen nuestros
-                    clientes de los
-                    resultados obtenidos con nuestro acompañamiento.
-                </div>
-                <div class="paragraph py-2 text-lime-c900 text-center">
-                    Académicos respaldan la veracidad de esta metodología y propietarios de fincas agro productoras de
-                    toda
-                    Hispano América han evidenciado aumentos exponenciales de su producción agrícola, con calidades
-                    superiores a la media y con la mayor eficiencia de uso del suelo.
-                </div>
-                <div class="lg:hidden w-full h-auto flex justify-center items-center gap-6 p-2">
-                    <div class="flex-col justify-center items-center">
-                        <div class="py-2 flex justify-center items-center">
-                            <x-button-popup :countries=$countries />
-                            </x-button-popup :countries=$countries>
-                        </div>
-                        <div class="py-2 flex justify-center items-center">
-                            <a class="flex justify-center items-center rounded-full border-2 border-lime-c900 text-lime-c900 text-lg p-4 py-3 hover:bg-lime-c900 hover:text-white"
-                                href="https://wa.me/+573133811612">
-                                Contactar
-                            </a>
-                        </div>
+            <div class="lg:w-1/2">
+                <x-agroamigable.text-structures.article alignment="text-center lg:text-right" color="text-lime-c900" hashtag="Testimonios"
+                    title="Lo que dicen nuestros clientes de los resultados obtenidos con nuestro acompañamiento."
+                    content="Académicos respaldan la veracidad de esta metodología y propietarios de fincas agro productoras de toda Hispano América han evidenciado aumentos exponenciales de su producción agrícola, con calidades superiores a la media y con la mayor eficiencia de uso del suelo.">
+                </x-agroamigable.text-structures.article>
+                <div class="hidden w-full h-auto lg:flex justify-center items-center gap-6 p-12">
+                    <div class="w-full h-auto flex justify-center items-center gap-6 p-6 flex-col lg:flex-row">
+                        <x-button-popup :countries=$countries />
+                        </x-button-popup :countries=$countries>
+                        <x-agroamigable.buttons.translucid-button href="https://wa.me/+573133811612" label="Contactar">
+                        </x-agroamigable.buttons.translucid-button>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="testimonials-lg flex justify-around">
-            <div class="hidden lg:block w-1/2 p-24">
-                <div class="py-16">
-                    <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
-                        <div class="sm:flex sm:items-center px-6 py-4">
-                            <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
-                                src="{{ url('/images/PHOTO-2023-06-07-21-00-39.jpg') }}" alt="">
-                            <div class="text-center sm:text-left sm:flex-grow">
-                                <div class="mb-4">
-                                    <p class="text-xl leading-tight">Alejandro RodrÍguez</p>
-                                    <p class="text-sm leading-tight text-gray-400">Finca Los Haticos Guarico, Moran,
-                                        Lara, Venezuela pasó a producir sus propios abonos orgánicos para los cultivos
-                                        de hortalizas y también desarrolló un exitoso programa Agroturistico.</p>
-                                </div>
-                                <div>
-                                    <x-button-popup-video>
-                                    </x-button-popup-video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
-                    <div class="sm:flex sm:items-center px-6 py-4">
-                        <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
-                            src="{{ url('/images/man.png') }}" alt="">
-                        <div class="text-center sm:text-left sm:flex-grow">
-                            <div class="mb-4">
-                                <p class="text-xl leading-tight">Luis Fernando Pérez de Buga</p>
-                                <p class="text-sm leading-tight text-gray-400">Valle, Colombia hizo el proceso de
-                                    diversificación escalonada de café, inicialmente a Plátano y banano. Hoy su Granja
-                                    Villa del Lago en la Verada Monterrey es un ejemplo de diversificación y
-                                    competitividad.</p>
-                            </div>
-                            <div>
-                                <button
-                                    class="text-xs font-semibold rounded-full px-4 py-1 leading-normal border-2 border-purple-400 text-purple hover:bg-purple-400 hover:text-white"><a
-                                        href="https://www.youtube.com/watch?v=V6sRPjYf_XY">Escuchar</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hidden lg:block w-1/2 p-16">
-                <div class="subtext py-6 text-lime-c900 font-bold text-xl">Testimonios</div>
-                <div class="main-title py-6 text-lime-c900 font-bold text-5xl">Lo que dicen nuestros clientes de los
-                    resultados obtenidos con nuestro acompañamiento.
-                </div>
-                <div class="paragraph py-6 text-lime-c900">
-                    Académicos respaldan la veracidad de esta metodología y propietarios de fincas agro productoras de
-                    toda
-                    Hispano América han evidenciado aumentos exponenciales de su producción agrícola, con calidades
-                    superiores a la media y con la mayor eficiencia de uso del suelo.
-                </div>
-                <div class="buttons flex justify-around p-4">
-
-                    <x-button-popup :countries=$countries />
-                    </x-button-popup :countries=$countries>
-                    <a class="rounded-full border-2 border-lime-c900 text-lime-c900 text-xl p-4 hover:bg-lime-c900 hover:text-white"
-                        href="https://wa.me/+573133811612">
-                        Contactar</a>
-
                 </div>
             </div>
         </div>
     </div>
+    <!-- END SECTION: CLIENTS TESTIMONIALS -->
     <div class="blog bg-lime-c100 flex justify-around">
         <div class="w-full p-6 lg:p-16">
             <div class="main-title py-6 text-lime-c900 font-bold text-3xl lg:text-5xl text-center">Échale un vistazo a
@@ -325,15 +137,15 @@
             <div
                 class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"">
                 @foreach ($publications as $publication)
-                            <x-publications-showcase :name="$publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id"/>
+                    <x-publications-showcase :name="$publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
                 @endforeach
             </div>
         </div>
     </div>
     <div
         class="footer-agroamigable bg-lime-c100 flex justify-around items-center p-2 border-t border-b border-lime-c900">
-        <img class="scale-75 lg:scale-50 w-1/2 lg:w-auto p-2"
-            src="{{ url('/images/Logo AgroAmigable_-12_-12 4.png') }}" alt="Image" />
+        <img class="scale-75 lg:scale-50 w-1/2 lg:w-auto p-2" src="{{ url('/images/Logo AgroAmigable_-12_-12 4.png') }}"
+            alt="Image" />
         <div class="slogan-footer w-1/2 lg:w-auto p-2 text-lime-c900 font-semibold text-lg">Nuestra causa es la vida...
             toda la vida.</div>
     </div>

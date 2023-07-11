@@ -22,10 +22,9 @@
             <a class="hidden lg:block" href="{{ route('dashboard') }}"> Servicios</a>
             <a class="hidden lg:block" href="{{ route('dashboard') }}"> Blog</a>
             <a class="hidden lg:block" href="http://www.agroamigable.co:2096/"> Email</a>
-            <a class="hidden lg:block rounded-full bg-orange-c500 border-2 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4"
-                href="{{ route('dashboard') }}">
-                Reservar
-                cita ahora</a>
+            <div class="hidden lg:block">
+            <x-agroamigable.buttons.orange-button href="route('dashboard')" label="Reservar cita ahora"></x-agroamigable.buttons.orange-button>
+            </div>
             <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
             <div x-data="{ dropdownOpen: false }" class="lg:hidden relative my-32">

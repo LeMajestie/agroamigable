@@ -49,6 +49,13 @@
     rgba(169,211,95,1) 100% );
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .bookbackward
 {
   background-image: radial-gradient(closest-side at 50% 50%, rgba(169,211,95,1) 2%, rgba(35,63,10,1) 80%);

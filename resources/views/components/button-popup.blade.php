@@ -18,9 +18,8 @@
 </script>
 <div x-data="{ modelOpen: debeestarabierto }">
     <button @click="modelOpen =!modelOpen"
-        class="flex justify-center items-center rounded-full bg-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-lg p-4 py-3">
+        class="rounded-full border-2 bg-orange-c500 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4">
         <span>Descargar Libro
-
         </span>
     </button>
 
@@ -135,7 +134,7 @@
                     </div>
                     <div class="flex justify-end mt-6">
                         <button type="submit"
-                            class="flex justify-center items-center rounded-full bg-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-lg p-4 py-3">
+                            class="rounded-full border-2 bg-orange-c500 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4">
                             Descargar Libro
                         </button>
                     </div>

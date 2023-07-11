@@ -18,9 +18,8 @@
 </script>
 <div x-data="{ modelOpen: debeestarabierto }">
     <button @click="modelOpen =!modelOpen"
-        class="flex justify-center items-center rounded-full bg-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-lg p-4 py-3">
+        class="rounded-full border-2 bg-orange-c500 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4">
         <span>Escuchar
-
         </span>
     </button>
 
@@ -44,7 +43,7 @@
                 <div class="flex items-center justify-between space-x-4">
 
                     <iframe class="yt_player_iframe" allowscriptaccess="always" width="600" height="300"
-                        src="https://www.youtube.com/embed/aumZYzr8czs">
+                        src="{{ $videoUrl }}">
                     </iframe>
 
                     <button @click="modelOpen = false" id="clickMe"

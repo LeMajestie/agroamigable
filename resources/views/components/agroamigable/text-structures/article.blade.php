@@ -1,9 +1,9 @@
-<div class="py-2 text-center {{$color}} text-lg lg:text-left font-bold lg:subtext lg:py-6 lg:text-xl">
+<p class="block py-2 {{$alignment}} {{$color}} text-lg font-bold lg:subtext lg:py-6 lg:text-xl">
     {{$hashtag}}
-</div>
-<div class="py-6 text-3xl font-bold {{$color}} text-center lg:text-left lg:text-5xl">
+</p>
+<p class="block py-6 text-3xl font-bold {{$color}} {{$alignment}} lg:text-5xl">
     {{$title}}
-</div>
-<div class="paragraph py-6 {{$color}} text-center lg:text-left">
+</p>
+<p class="block py-6 {{$color}} {{$alignment}}">
     {{$content}}
-</div>
+</p>
