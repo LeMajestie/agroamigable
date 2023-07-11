@@ -325,23 +325,7 @@
             <div
                 class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"">
                 @foreach ($publications as $publication)
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-                        <img class="w-full" src="/images/pink-bg.png" alt="Sunset in the mountains">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">{{ $publication->name }}</div>
-                            <p class="text-gray-700 text-base">
-                                {{ $publication->abstract }}
-                            </p>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                        </div>
-                    </div>
+                            <x-publications-showcase :name="$publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id"/>
                 @endforeach
             </div>
         </div>

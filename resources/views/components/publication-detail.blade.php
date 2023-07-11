@@ -1,5 +1,4 @@
-<div class="main-title text-black text-5xl text-left px-32 py-12">7 beneficios de la teoría de la trofobiosis para
-    potenciar tu producción agrícola.
+<div class="main-title text-black text-5xl text-left px-32 py-12">{{ $publication->name }}
 </div>
 <img class="py-12 px-32" src="{{ url('/images/Rectangle 11.png') }}" alt="Image" />
 <div class=" text-slate-400 text-base text-left px-32 border-t border-b">Publicado 11/10/23

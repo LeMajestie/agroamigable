@@ -67,9 +67,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function() {
-            console.log("se cargo el doc");
+            //console.log("se cargo el doc");
             document.getElementById("clickMe").onclick = function() {
-                console.log('hello!');
+                //console.log('hello!');
                 $('yt_player_iframe').prop('src', '').prop('src', src.replace('?autoplay=1', ''));
             };
         })

@@ -16,18 +16,20 @@ class WorldCountriesAndStatesController extends Controller
         return view('home', compact('countries'), compact('publications'));
     }
 
-    public function publications()
+    public function publications($id)
     {
         $publications = publication::orderBy('id','desc')->paginate(5);
-        return view('blog', compact('publications'));
+        $publicationSelected= Publication::where('id', $id)->get();
+        return view('blog', compact('publications'), compact('publicationSelected'));
     }
+
 
 
     public function getstates()
     {
     	$country_id =request('country');
 
-        $states= State::where('country_id', $country_id)->get();
+        $states=
         $option ="<option value=''>Select State</option>";
         foreach($states as $state){
             $option .= '<option value="' .$state->name. '">' .$state->name. '</option>';
