@@ -1,4 +1,5 @@
 <x-app-layout>
+<script src="/vendors/ckeditor/ckeditor.js"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -45,7 +46,7 @@
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication slug:</strong>
                                             <input type="text" name="slug" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
-                                                placeholder="publication Email" value="{{ $publication->slug }}">
+                                                placeholder="publication slug" value="{{ $publication->slug }}">
                                             @error('slug')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                             @enderror
@@ -54,8 +55,8 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication body:</strong>
-                                            <input type="text" name="body" value="{{ $publication->body }}"
-                                                class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="publication body">
+                                            <textarea name="body" {{ $publication->body }}"
+                                                class="ckeditor form-control block w-full">{{ $publication->body }}</textarea>
                                             @error('body')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                             @enderror
@@ -107,7 +108,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication color:</strong>
-                                            <input type="text" name="body" value="{{ $publication->color }}"
+                                            <input type="text" name="color" value="{{ $publication->color }}"
                                                 class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="publication color">
                                             @error('color')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

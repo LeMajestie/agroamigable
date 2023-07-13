@@ -1,4 +1,5 @@
 <x-app-layout>
+<script src="/vendors/ckeditor/ckeditor.js"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -53,7 +54,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">body</strong>
-                                            <textarea name="body" class="form-control block w-full"></textarea>
+                                            <textarea name="body" class="ckeditor form-control block w-full"></textarea>
                                             @error('body')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                             @enderror
@@ -73,7 +74,7 @@
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">image</strong>
                                             <input type="file" name="image" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
-                                                placeholder="publication Address">
+                                                placeholder="publication image">
                                             @error('image')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                             @enderror
