@@ -49,11 +49,11 @@
     </div>
     <div class="main-title text-black text-5xl text-left p-6 lg:px-24">{{ $publicationSelected[0]->name }}
     </div>
-    <center>
-        <div class="bg-green-300 w-4/5 h-full">
-            <img class="object-cover h-full w-full"
-                src="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}">
-    </center>
+    <center1>
+        <div class="box-border h-32 w-32 p-4 border-4 bg-lime-c900">
+        </div>
+
+    </center1>
     <div class=" text-slate-400 text-base text-left px-6 lg:px-24 border-t border-b">
         {{ $publicationSelected[0]->created_at }}
     </div>
@@ -62,7 +62,7 @@
     <div class="main-title text-black text-5xl text-left p-6 lg:px-24">{{ $publicationSelected[0]->name }}
     </div>
     <div class="paragraph text-justify lg:text-center text-black p-6 lg:px-24">
-        {{ $publicationSelected[0]->body }}
+        {!! $publicationSelected[0]->body !!}
     </div>
     <div class="main-title text-slate-400 text-5xl text-left p-6 lg:px-24">Otros artículos
     </div>
@@ -72,12 +72,4 @@
             <x-publications-showcase :name="$publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
         @endforeach
     </div>
-    <script>
-        $(document).ready(function() {
-            $.get('/1?country=' + country_id, function(data) {
-                console.log("sus ciudades son: " + data);
-                $(".region").html(data);
-            })
-        })
-    </script>
 </body>

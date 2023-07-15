@@ -42,7 +42,7 @@
     </div>
     <!-- END SECTION: INTRODUCTION -->
     <!-- SECTION: BOOK -->
-    <div class="bg-lime-c900 relative z-50 lg:px-24 lg:flex w-full">
+    <div class="bg-lime-c900 relative z-50 lg:px-24 lg:flex lg:items-center lg:justify-center w-full">
         <img class="lg:w-1/3 scale-90 lg:scale-90 center" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}"
             alt="Image" />
         <div class="lg:w-2/3 p-6">
@@ -111,7 +111,8 @@
                 </x-agroamigable.boxes.testimony>
             </div>
             <div class="lg:w-1/2">
-                <x-agroamigable.text-structures.article alignment="text-center lg:text-right" color="text-lime-c900" hashtag="Testimonios"
+                <x-agroamigable.text-structures.article alignment="text-center lg:text-right" color="text-lime-c900"
+                    hashtag="Testimonios"
                     title="Lo que dicen nuestros clientes de los resultados obtenidos con nuestro acompañamiento."
                     content="Académicos respaldan la veracidad de esta metodología y propietarios de fincas agro productoras de toda Hispano América han evidenciado aumentos exponenciales de su producción agrícola, con calidades superiores a la media y con la mayor eficiencia de uso del suelo.">
                 </x-agroamigable.text-structures.article>
@@ -216,11 +217,13 @@
                             <div class="flex flex-wrap justify-center gap-2">
                                 <button
                                     class="p-2 font-semibold text-lime-c900 inline-flex items-center space-x-2 rounded">
-                                    <svg class="w-5 h-5 fill-current" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <path
-                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                    </svg>
+                                    <a href="https://www.facebook.com/agroamigable.latam" target="_blank">
+                                        <svg class="w-5 h-5 fill-current" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path
+                                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                        </svg>
+                                    </a>
                                 </button>
 
                                 <button
