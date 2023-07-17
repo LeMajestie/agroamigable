@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .box{
+          width: 80%;
+          height: auto;
+          border-radius: 25px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -49,11 +57,12 @@
     </div>
     <div class="main-title text-black text-5xl text-left p-6 lg:px-24">{{ $publicationSelected[0]->name }}
     </div>
-    <center1>
-        <div class="box-border h-32 w-32 p-4 border-4 bg-lime-c900">
+    <center class="py-6 lg:p-16">
+        <div class="box shadow-lg overflow-hidden">
+            <img class="object-cover h-full w-full"
+            src="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}">
         </div>
-
-    </center1>
+    </center>
     <div class=" text-slate-400 text-base text-left px-6 lg:px-24 border-t border-b">
         {{ $publicationSelected[0]->created_at }}
     </div>
