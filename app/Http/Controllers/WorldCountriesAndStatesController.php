@@ -29,7 +29,7 @@ class WorldCountriesAndStatesController extends Controller
     {
     	$country_id =request('country');
 
-        $states=
+        $states=State::where('country_id', $country_id)->get();
         $option ="<option value=''>Select State</option>";
         foreach($states as $state){
             $option .= '<option value="' .$state->name. '">' .$state->name. '</option>';
