@@ -141,6 +141,10 @@
                     <x-publications-showcase :name="$publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
                 @endforeach
             </div>
+            <div class="flex justify-center place-content-center">
+            {!! $publications->links() !!}
+            </div>
+
         </div>
     </div>
     <div
