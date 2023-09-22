@@ -1,5 +1,5 @@
 <x-app-layout>
-<script src="/vendors/ckeditor/ckeditor.js"></script>
+<script src="https://cdn.tiny.cloud/1/up62vc2viot6nlbt0wry5yqjvcgvy5nngtewdr7a9ffk9qd6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -13,11 +13,11 @@
                         <div class="container mt-2">
                             <div class="row">
                                 <div class="col-lg-12 margin-tb">
-                                    <h1 class="text-3xl py-4 border-b mb-10">Crear publicación</h1>
+                                    <h1 class="text-3xl py-4 border-b mb-10">Editar publicación</h1>
                                     <div class="pull-right">
                                         <x-agroamigable.buttons.intra-system color="lime-c900"
                                             hoverColor="hover:text-lime-c900"
-                                            href="{{ route('publications.index') }}" label="Atrás">
+                                            href="{{ route('publications.index') }}" label="Atr鑺峴">
                                         </x-agroamigable.buttons.intra-system>
                                     </div>
                                 </div>
@@ -55,8 +55,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication body:</strong>
-                                            <textarea name="body" {{ $publication->body }}"
-                                                class="ckeditor form-control block w-full">{{ $publication->body }}</textarea>
+                                            <textarea name="body" id="editor" class="ckeditor form-control block w-full">{{ $publication->body }}</textarea>
                                             @error('body')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                             @enderror
@@ -126,6 +125,28 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="rounded-full border-2 bg-lime-c900 border-lime-c900 hover:bg-transparent hover:text-lime-c900 text-white p-2 m-4">Editar</button>
+                                    <script>
+                                        ClassicEditor
+                                            .create(document.querySelector('#editor'))
+                                            .catch(error => {
+                                                console.error(error);
+                                            });
+                                    </script>
+                                                                        <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ],
+      ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+    });
+  </script>
+                                    
                                 </div>
                             </form>
                         </div>
