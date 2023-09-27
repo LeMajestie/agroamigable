@@ -75,9 +75,17 @@ class PublicationController extends Controller
             'author' => 'required',
         ]);
 
+            // Check if validation fails
+    if ($request->fails()) {
+        return redirect()
+            ->back()
+            ->withErrors($request)
+            ->withInput(); // This will retain the old input values
+    }
+
         publication::create($request->post());
 
-        return redirect()->route('publications.index')->with('success','publication has been created successfully.');
+        return redirect()->route('publications.index')->with('success','La publicación ha sido creada satisfactoriamente');
     }
 
     /**
