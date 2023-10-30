@@ -11,7 +11,7 @@ class WorldCountriesAndStatesController extends Controller
 {
     public function home()
     {
-        $publications = publication::orderBy('id','desc')->paginate(5);
+        $publications = publication::orderBy('id','desc')->paginate(6);
         $countries = Country::all();
         return view('home', compact('countries'), compact('publications'));
     }

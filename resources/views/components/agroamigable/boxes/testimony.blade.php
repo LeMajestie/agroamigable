@@ -1,4 +1,4 @@
-<div class="bg-white max-w-xl mx-auto shadow-lg rounded-lg overflow-hidden">
+<div class="bg-white max-w-xl mx-auto shadow-lg rounded-xl overflow-hidden">
     <div class="sm:flex sm:items-center px-8 py-4">
         <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0 px-2" src="{{ url($imageUrl) }}"
             alt="">

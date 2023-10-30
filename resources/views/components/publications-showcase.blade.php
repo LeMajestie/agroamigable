@@ -1,5 +1,5 @@
 <a href="/Blog/{{ $id }}" class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-    <img class="w-full" src="/images/publications_images/{{ $image }}">
+    <!--<img class="w-full" src="/images/publications_images/{{ $image }}" alt="Image not found">-->
     <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{ $name }}</div>
         <p class="text-gray-700 text-base">

@@ -17,7 +17,7 @@ class PublicationController extends Controller
     public function index()
     {
         Log::debug('An informational message.');
-        $publications = publication::orderBy('id','desc')->paginate(5);
+        $publications = publication::orderBy('id','desc')->paginate(6);
         return view('publications.index', compact('publications'));
     }
 

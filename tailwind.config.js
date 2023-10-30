@@ -7,6 +7,7 @@ module.exports = {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/views/components/**/*.blade.php',
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
@@ -24,15 +25,14 @@ module.exports = {
                 'orange-c500': '#F15A24',
                 'lime-c100': '#D3E8AD',
                 'golden-c500': '#9E8C3F',
-              },
+            },
 
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-              }
+            }
 
         },
     },
-
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
