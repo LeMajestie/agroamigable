@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        .box{
-          width: 80%;
-          height: auto;
-          border-radius: 25px;
+        .box {
+            width: 80%;
+            height: auto;
+            border-radius: 25px;
         }
-
     </style>
 </head>
 
@@ -21,8 +20,7 @@
         <a class="hidden lg:block" href="{{ route('dashboard') }}"> Nosotros</a>
         <a class="hidden lg:block" href="{{ route('dashboard') }}"> Servicios</a>
         <a class="hidden lg:block" href="{{ route('dashboard') }}"> Blog</a>
-        <a class="hidden lg:block rounded-full bg-orange-c500 border-2 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4"
-            href="{{ route('dashboard') }}">
+        <a class="hidden lg:block rounded-full bg-orange-c500 border-2 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4" href="{{ route('dashboard') }}">
             Reservar
             cita ahora</a>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -40,16 +38,13 @@
             </div>
 
             <div x-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-                <a href="#"
-                    class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                     Nosotros
                 </a>
-                <a href="#"
-                    class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                     Servicios
                 </a>
-                <a href="#"
-                    class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                     Blog
                 </a>
             </div>
@@ -59,8 +54,7 @@
     </div>
     <center class="py-6 lg:p-16">
         <div class="box shadow-lg overflow-hidden">
-            <img class="object-cover h-full w-full"
-            src="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}">
+            <img class="object-cover h-full w-full" src="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}">
         </div>
     </center>
     <div class=" text-slate-400 text-base text-left px-6 lg:px-24 border-t border-b">
@@ -70,15 +64,15 @@
     </div>
     <div class="main-title text-black text-5xl text-left p-6 lg:px-24">{{ $publicationSelected[0]->name }}
     </div>
-    <div class="paragraph text-justify lg:text-center text-black p-6 lg:px-24">
+    <div class="paragraph text-justify p-6 pt-0 sm:px-32 md:px-32 lg:px-32 xl:px-48 text-black">
         {!! $publicationSelected[0]->body !!}
     </div>
+    <x-agroamigable.boxes.invitation></x-agroamigable.boxes.invitation>
     <div class="main-title text-slate-400 text-5xl text-left p-6 lg:px-24">Otros artículos
     </div>
-    <div
-        class="p-6 lg:px-24 blog-articles lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"">
+    <div class="p-6 lg:px-24 blog-articles lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"">
         @foreach ($publications as $publication)
-            <x-publications-showcase :name="$publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
+            <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
         @endforeach
     </div>
 </body>

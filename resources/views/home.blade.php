@@ -134,20 +134,23 @@
             </div>
         </div>
         <!-- END SECTION: CLIENTS TESTIMONIALS -->
-        <div class="blog bg-lime-c100 flex justify-around">
+        <!-- SECTION: BLOG -->
+        <div id="blog" class="blog bg-lime-c100 flex justify-around">
             <div class="w-full p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 lg:p-16">
                 <div class="main-title py-6 text-lime-c900 font-bold text-3xl lg:text-5xl text-center">Échale un vistazo a
                     nuestros
                     últimos
                     artículos en el Blog.
                 </div>
+                <div class="py-6 text-lime-c900 font-light text-2xl lg:text-3xl text-center">Publicaciones recientes
+                </div>
                 <div class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                     @foreach ($publications as $publication)
                     <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
                     @endforeach
                 </div>
-                <div class="flex justify-center place-content-center">
-                    {!! $publications->links('vendor.pagination.agroamigable') !!}
+                <div class="flex justify-center place-content-center">                    
+                    {!!$publications->links('vendor.pagination.agroamigable')!!}
                 </div>
 
             </div>
@@ -363,7 +366,21 @@
             })
         })
     </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the URL contains a page query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = urlParams.get('page');
 
+        // If page is not null and greater than 1, scroll to the desired section
+        if (page && page > 1) {
+            const section2 = document.getElementById('blog');
+            if (section2) {
+                section2.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+</script>
 </body>
 
 <script type="text/javascript">

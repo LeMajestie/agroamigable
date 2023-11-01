@@ -9,7 +9,7 @@
                 <p class="text-sm leading-tight text-gray-400">{{ $body }}</p>
             </div>
             <div class="flex justify-center">
-                <x-button-popup-video videoUrl="{{ $videoUrl }}">
+                <x-button-popup-video videoUrl="notfound">
                 </x-button-popup-video>
             </div>
         </div>
