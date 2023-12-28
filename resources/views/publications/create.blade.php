@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Other HTML head elements -->
+</head>
+<body>
 <x-app-layout>
     <script src="https://cdn.tiny.cloud/1/up62vc2viot6nlbt0wry5yqjvcgvy5nngtewdr7a9ffk9qd6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <x-slot name="header">
@@ -17,7 +24,7 @@
                                     <div class="pull-right">
                                         <x-agroamigable.buttons.intra-system color="lime-c900"
                                             hoverColor="hover:text-lime-c900" href="{{ route('publications.index') }}"
-                                            label="Atr芍s">
+                                            label="Atrás">
                                         </x-agroamigable.buttons.intra-system>
                                     </div>
                                 </div>
@@ -73,11 +80,13 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">image</strong>
-                                            <input type="file" name="image" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
-                                                placeholder="publication Address">
+                                            <input type="file" name="image2" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                                placeholder="publication image">
                                             @error('image')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                             @enderror
+                                            <input type="hidden" name="image" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                                placeholder="publication image">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -121,18 +130,11 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="rounded-full border-2 bg-lime-c900 border-lime-c900 hover:bg-transparent hover:text-lime-c900 text-white p-2 m-4">Publicar</button>
-                                    <script>
-                                        ClassicEditor
-                                            .create(document.querySelector('#editor'))
-                                            .catch(error => {
-                                                console.error(error);
-                                            });
-                                    </script>
                                     
                                     <script>
     tinymce.init({
       selector: 'textarea',
-      plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
       tinycomments_mode: 'embedded',
       tinycomments_author: 'Author name',
@@ -142,7 +144,6 @@
       ],
       ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
     });
-   
   </script>
                                     
                                 </div>
@@ -155,3 +156,5 @@
     </div>
     </div>
 </x-app-layout>
+</body>
+</html>

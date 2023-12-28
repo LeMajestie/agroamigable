@@ -1,7 +1,7 @@
 <div class="flex justify-around overflow-x-hidden w-full">
     <div class="hidden lg:block lg:w-1/3"></div>
     <div class="lg:w-2/3">
-        <img class="h-auto float-right absolute z-20 hidden lg:block right-0 w-auto max-w-full" src="{{ url('/images/homedesing.png') }}" alt="Image" />
+        
     </div>
 </div>
 <div class="relative z-50 navbar w-full lg:h-auto h-24 flex justify-around items-center p-4 lg:p-8 text-lime-c900 text-2xl font-thin">

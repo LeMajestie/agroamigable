@@ -1,4 +1,11 @@
-<x-app-layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Other HTML head elements -->
+</head>
+<body>
+  <x-app-layout>
 <script src="https://cdn.tiny.cloud/1/up62vc2viot6nlbt0wry5yqjvcgvy5nngtewdr7a9ffk9qd6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -17,7 +24,7 @@
                                     <div class="pull-right">
                                         <x-agroamigable.buttons.intra-system color="lime-c900"
                                             hoverColor="hover:text-lime-c900"
-                                            href="{{ route('publications.index') }}" label="Atr鑺峴">
+                                            href="{{ route('publications.index') }}" label="Atrás">
                                         </x-agroamigable.buttons.intra-system>
                                     </div>
                                 </div>
@@ -35,6 +42,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication name:</strong>
+                                            Título de la publciación:
                                             <input type="text" name="name" value="{{ $publication->name }}"
                                                 class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="publication name">
                                             @error('name')
@@ -45,6 +53,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication slug:</strong>
+                                            Slug de la publicación:
                                             <input type="text" name="slug" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                                 placeholder="publication slug" value="{{ $publication->slug }}">
                                             @error('slug')
@@ -55,6 +64,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication body:</strong>
+                                            Contenido de la publicación:
                                             <textarea name="body" id="editor" class="ckeditor form-control block w-full">{{ $publication->body }}</textarea>
                                             @error('body')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -64,6 +74,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication abstract:</strong>
+                                            Resumen de la publicación:
                                             <input type="text" name="abstract"
                                                 value="{{ $publication->abstract }}" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                                 placeholder="publication abstract">
@@ -75,7 +86,19 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication image:</strong>
-                                            <input type="text" name="image" value="{{ $publication->image }}"
+                                            Imagen actual de la publicación, si desea actualizarla cargue una imagen nueva en el siguiente campo:
+                                            <input type="text" name="image" readonly="readonly" value="{{ $publication->image }}"
+                                                class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="publication image">
+                                            @error('image')
+                                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication image to update:</strong>
+                                            Si desea actualizar la imagen de la publicación, cárguela aquí:
+                                            <input type="file" name="image2"
                                                 class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="publication image">
                                             @error('image')
                                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -85,6 +108,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication minimage:</strong>
+                                            Mini imagen:
                                             <input type="text" name="minimage"
                                                 value="{{ $publication->minimage }}" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                                 placeholder="publication minimage">
@@ -96,6 +120,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication published:</strong>
+                                            Publicada:
                                             <input type="text" name="published"
                                                 value="{{ $publication->published }}" class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                                 placeholder="publication published">
@@ -107,6 +132,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication color:</strong>
+                                            Color asociado a la publicación:
                                             <input type="text" name="color" value="{{ $publication->color }}"
                                                 class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="publication color">
                                             @error('color')
@@ -117,6 +143,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong class="block text-sm text-gray-700 capitalize dark:text-gray-200">publication author:</strong>
+                                            Autor de la publicación:
                                             <input type="text" name="author" value="{{ $publication->author }}"
                                                 class="form-control block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="publication author">
                                             @error('author')
@@ -135,7 +162,7 @@
                                                                         <script>
     tinymce.init({
       selector: 'textarea',
-      plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
       tinycomments_mode: 'embedded',
       tinycomments_author: 'Author name',
@@ -157,3 +184,6 @@
     </div>
     </div>
 </x-app-layout>
+
+</body>
+</html>

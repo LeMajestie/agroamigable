@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use WisdomDiala\Countrypkg\Models\Country;
 use WisdomDiala\Countrypkg\Models\State;
 use App\Models\Publication;
+use Illuminate\Support\Facades\Log; 
 
 class WorldCountriesAndStatesController extends Controller
 {
@@ -20,6 +21,15 @@ class WorldCountriesAndStatesController extends Controller
     {
         $publications = publication::orderBy('id','desc')->paginate(5);
         $publicationSelected= Publication::where('id', $id)->get();
+        return view('blog', compact('publications'), compact('publicationSelected'));
+    }
+
+    public function publicationsBySlug(Request $request,$slug)
+    {
+        $id = request('id');
+        Log::info('Id: ' . $id);
+        $publications = publication::orderBy('id','desc')->paginate(5);
+        $publicationSelected= Publication::where('slug', $slug)->get();
         return view('blog', compact('publications'), compact('publicationSelected'));
     }
 

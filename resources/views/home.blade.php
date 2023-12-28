@@ -32,31 +32,33 @@
     <div x-data="{ modelOpen: abierto2 }">
         <div id="landing style" class="bg-gradient-to-br from-white from-10% via-lime-c100 to-lime-c100">
             <!-- SECTION: LANDING -->
-            <x-navbar></x-navbar>
-            <div id="landing" class="p-6 pt-0 sm:px-32 md:px-32 lg:px-32 xl:px-48">
-                <div class="flex w-full">
-                    <div class="lg:w-1/2 lg:py-32 lg:pt-16">
-                        <x-agroamigable.text-structures.article flexalignment="justify-center lg:justify-start" alignment="text-center lg:text-left" color="text-lime-c900" hashtag="Innovación Agrícola" title="Agricultura limpia, eficiente y rentable" content="Cultivos sin plagas, ¿es posible?. Sí, es posible la innovación agrícola con nuestra experiencia de
+            <div class="first landing h-auto">
+                <img class="absolute top-0 right-0 h-max w-auto" src="{{ url('/images/homedesing.png') }}" alt="Image" />
+                <x-navbar></x-navbar>
+                <div id="landing" class="p-6 pt-0 sm:px-32 md:px-32 lg:px-32 xl:px-48">
+                    <div class="flex w-full">
+                        <div class="lg:w-1/2 lg:py-32 lg:pt-16">
+                            <x-agroamigable.text-structures.article flexalignment="justify-center lg:justify-start" alignment="text-center lg:text-left" color="text-lime-c900" hashtag="Innovación Agrícola" title="Agricultura limpia, eficiente y rentable" content="Cultivos sin plagas, ¿es posible?. Sí, es posible la innovación agrícola con nuestra experiencia de
                     más de 20 años (desde 1999), implementado metodologías que incluyen la teoría de la Trofobiosis, la
                     cual plantea que '“'en suelos sanos, cultivos sanos, y en suelo sanos, las plagas se morirán de
                     hambre'”'. Francis Chauboussou">
-                        </x-agroamigable.text-structures.article>
-                        <div class="w-full h-auto flex justify-center items-center gap-6 p-6 flex-col lg:flex-row">
-                            <x-agroamigable.buttons.orange-button href="https://wa.me/+573133811612" label="Contactar">
-                            </x-agroamigable.buttons.orange-button>
-                            <x-agroamigable.buttons.translucid-button href="https://wa.me/+573133811612" label="Quiero saber más"></x-agroamigable.buttons.translucid-button>
+                            </x-agroamigable.text-structures.article>
+                            <div class="w-full h-auto flex justify-center items-center gap-6 p-6 flex-col lg:flex-row">
+                                <x-agroamigable.buttons.orange-button href="https://wa.me/+573133811612" label="Contactar">
+                                </x-agroamigable.buttons.orange-button>
+                                <x-agroamigable.buttons.translucid-button href="https://wa.me/+573133811612" label="Quiero saber más"></x-agroamigable.buttons.translucid-button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="lg:w-1/3 h-full">
+                        <div class="lg:w-1/3 h-full">
+                        </div>
                     </div>
                 </div>
                 <div class="background-images2 flex overflow-x-hidden">
                     <img class="lg:hidden absolute z-10 pt-3" src="{{ url('/images/background-images-mobile.png') }}" alt="Image" />
                     <img class="lg:hidden z-10 pt-3" src="{{ url('/images/background-image-espaciador.png') }}" alt="Image" />
                 </div>
+                <x-agroamigable.separators.lime-c900></x-agroamigable.separators.lime-c900>
             </div>
-
-            <x-agroamigable.separators.lime-c900></x-agroamigable.separators.lime-c900>
             <!-- END SECTION: LANDING -->
             <!-- SECTION: BOOK -->
             <div class="bg-lime-c900 p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 relative z-50 md:flex md:items-center md:justify-center lg:flex lg:items-center lg:justify-center w-full">
@@ -110,11 +112,11 @@
                 <div class="lg:w-1/2 p-2 md:pr-16 grid gap-12">
                     <x-agroamigable.boxes.testimony witness="Alejandro Rodríguez" location="Finca Los Haticos Guarico, Moran,
                         Lara, Venezuela" body="Pasó a producir sus propios abonos orgánicos para los cultivos
-                        de hortalizas y también desarrolló un exitoso programa Agroturistico." imageUrl="/images/PHOTO-2023-06-07-21-00-39.jpg" videoUrl="https://www.youtube.com/embed/aumZYzr8czs"></x-agroamigable.boxes.testimony>
+                        de hortalizas y también desarrolló un exitoso programa Agroturistico." imageUrl="/images/man.png" videoUrl="https://www.youtube.com/embed/aumZYzr8czs"></x-agroamigable.boxes.testimony>
                     <x-agroamigable.boxes.testimony witness="Luis Fernando Pérez de Buga" location="Valle, Colombia" body="Hizo el proceso de
                                     diversificación escalonada de café, inicialmente a Plátano y banano. Hoy su Granja
                                     Villa del Lago en la Verada Monterrey es un ejemplo de diversificación y
-                                    competitividad." imageUrl="/images/man.png" videoUrl="https://www.youtube.com/embed/aumZYzr8czs">
+                                    competitividad." imageUrl="/images/PHOTO-2023-06-07-21-00-39.jpg" videoUrl="https://www.youtube.com/embed/aumZYzr8czs">
                     </x-agroamigable.boxes.testimony>
                 </div>
                 <div class="lg:w-1/2">
@@ -146,10 +148,10 @@
                 </div>
                 <div class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                     @foreach ($publications as $publication)
-                    <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
+                    <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :slug="$publication->slug" />
                     @endforeach
                 </div>
-                <div class="flex justify-center place-content-center">                    
+                <div class="flex justify-center place-content-center p-6">
                     {!!$publications->links('vendor.pagination.agroamigable')!!}
                 </div>
 
@@ -157,15 +159,15 @@
         </div>
         <div class="footer-agroamigable bg-lime-c100 flex justify-around items-center p-2 border-t border-b border-lime-c900">
             <img class="scale-75 lg:scale-50 w-1/2 lg:w-auto p-2" src="{{ url('/images/Logo AgroAmigable_-12_-12 4.png') }}" alt="Image" />
-            <div class="slogan-footer w-1/2 lg:w-auto p-2 text-lime-c900 font-semibold text-2xl">Nuestra causa es la vida...
+            <div class="slogan-footer w-1/2 lg:w-auto p-2 text-lime-c900 font-semibold text-xl lg:text-2xl">Nuestra causa es la vida...
                 toda la vida.</div>
         </div>
-        <div class="sub-footer-agroamigable-sm lg:hidden bg-lime-c100 w-full flex-col justify-around items-center p-8 border-lime-c900 text-lime-c900 text-center text-2xl">
+        <div class="sub-footer-agroamigable-sm lg:hidden bg-lime-c100 w-full flex-col justify-around items-center p-8 border-lime-c900 text-lime-c900 text-center text-lg lg:text-2xl">
             Copyright © 2023 Designed by Biosens Lab & Dustrad Technologies | All Rights Reserved
             <div class="flex items-center justify-center">
                 <div class="container max-w-screen-lg mx-auto">
                     <div>
-                        <div class="flex flex-wrap justify-center gap-2">
+                        <div class="flex flex-wrap justify-center gap-2 pt-6">
                             <button class="p-2 font-semibold text-lime-c900 inline-flex items-center space-x-2 rounded">
                                 <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -206,14 +208,14 @@
 
         <div class="hidden lg:block">
             <div class="sub-footer-agroamigable-lg bg-lime-c100 w-full flex justify-around items-center p-8 border-lime-c900 text-lime-c900">
-                <div class="copyright hidden lg:block">
+                <div class="copyright hidden lg:block text-lg lg:text-lg">
                     Copyright © 2023 Designed by Biosens Lab & Dustrad Technologies | All Rights Reserved
 
                 </div>
                 <div class="hidden lg:block">
                     <div class="flex items-center justify-center">
                         <div class="container max-w-screen-lg mx-auto">
-                            <div>
+                            <div class="">
                                 <div class="flex flex-wrap justify-center gap-2">
                                     <button class="p-2 font-semibold text-lime-c900 inline-flex items-center space-x-2 rounded">
                                         <a href="https://www.facebook.com/agroamigable.latam" target="_blank">
@@ -366,21 +368,23 @@
             })
         })
     </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if the URL contains a page query parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const page = urlParams.get('page');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if the URL contains a page query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const page = urlParams.get('page');
 
-        // If page is not null and greater than 1, scroll to the desired section
-        if (page && page > 1) {
-            const section2 = document.getElementById('blog');
-            if (section2) {
-                section2.scrollIntoView({ behavior: 'smooth' });
+            // If page is not null and greater than 1, scroll to the desired section
+            if (page && page > 1) {
+                const section2 = document.getElementById('blog');
+                if (section2) {
+                    section2.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
 
 <script type="text/javascript">

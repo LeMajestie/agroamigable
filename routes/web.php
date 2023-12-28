@@ -28,6 +28,8 @@ Route::get('/test', function () {
 
 Route::get('/Blog/{id}', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publications']);
 
+Route::get('/Blag/{slug}', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publicationsBySlug']);
+
 Route::get('/', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'home']);
 
 Route::get('/1', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'getstates']);

@@ -50,21 +50,21 @@
             </div>
         </div>
     </div>
-    <div class="main-title text-black text-5xl text-left p-6 lg:px-24">{{ $publicationSelected[0]->name }}
+    <div class="main-title text-black text-2xl lg:text-4xl text-left p-6 lg:px-24">{{ $publicationSelected[0]->name }}
     </div>
     <center class="py-6 lg:p-16">
         <div class="box shadow-lg overflow-hidden">
             <img class="object-cover h-full w-full" src="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}">
         </div>
     </center>
-    <div class=" text-slate-400 text-base text-left px-6 lg:px-24 border-t border-b">
+    <div class=" text-slate-400 text-base text-left p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 border-t border-b">
         {{ $publicationSelected[0]->created_at }}
     </div>
-    <div class=" text-slate-400 text-sm text-left px-6 lg:px-24 border-t border-b">{{ $publicationSelected[0]->author }}
+    <div class=" text-slate-400 text-sm text-left p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 border-t border-b">{{ $publicationSelected[0]->author }}
     </div>
-    <div class="main-title text-black text-5xl text-left p-6 lg:px-24">{{ $publicationSelected[0]->name }}
+    <div class="main-title text-black hidden lg:block text-3xl text-left p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48">{{ $publicationSelected[0]->name }}
     </div>
-    <div class="paragraph text-justify p-6 pt-0 sm:px-32 md:px-32 lg:px-32 xl:px-48 text-black">
+    <div class="paragraph text-justify p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 text-black">
         {!! $publicationSelected[0]->body !!}
     </div>
     <x-agroamigable.boxes.invitation></x-agroamigable.boxes.invitation>
@@ -72,7 +72,7 @@
     </div>
     <div class="p-6 lg:px-24 blog-articles lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"">
         @foreach ($publications as $publication)
-            <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" />
+            <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :slug="$publication->slug" />
         @endforeach
     </div>
 </body>

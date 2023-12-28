@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class PublicationController extends Controller
 {
@@ -39,53 +42,57 @@ class PublicationController extends Controller
     */
     public function store(Request $request)
     {
-        Log::debug('An informational message.');
-        if($request->hasFile('image'))
-        {
-            Log::debug('An informational message.');
-            $file=$request->file('image');
-            $extention=$file->getClientOriginalExtension();
-            $filename=time().'.'.$extention;
-            //$file->move('/images/publications_images/',$filename);
+        
+      if ($request->hasFile('image2')) {
+    $file = $request->file('image2');
+    
+    // Validate the file type and size
+    $validator = Validator::make(
+        ['image2' => $file],
+        ['image2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'] // Adjust the allowed file types and size as needed
+    );
 
-            try {
-                // Code that may throw an exception
-                $file->move(public_path('/images/publications_images'),$filename);
-                //$request->image->move(url('/images'), $filename);
-                // public/images/file.png
-                // ...
-            } catch (Exception $e) {
-                // Exception handling code
-                Log::debug($e->getMessage());
-                // ...
-            }
-
-            $request['image']=$filename;
-        }
-
-        $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'body' => 'required',
-            'abstract' => 'required',
-            'image' => 'required',
-            'minimage' => 'required',
-            'published' => 'required',
-            'color' => 'required',
-            'author' => 'required',
-        ]);
-
-            // Check if validation fails
-    if ($request->fails()) {
-        return redirect()
-            ->back()
-            ->withErrors($request)
-            ->withInput(); // This will retain the old input values
+    if ($validator->fails()) {
+        // Handle validation errors for the image
+        return Redirect::back()->withInput($request->input())->withErrors($validator);
     }
 
-        publication::create($request->post());
+    $extention = $file->getClientOriginalExtension();
+    $filename = time() . '.' . $extention;
 
-        return redirect()->route('publications.index')->with('success','La publicación ha sido creada satisfactoriamente');
+    try {
+        $file->move(public_path('/images/publications_images'), $filename);
+    } catch (Exception $e) {
+        Log::error($e->getMessage());
+        // Handle the exception and return an error response
+    }
+
+    // Update the request data using the ->merge() method
+    $request['image'] = $filename;
+    //dd($request);
+    
+}
+
+$validator = Validator::make($request->all(), [
+    'name' => 'required',
+    'slug' => 'required',
+    'body' => 'required',
+    'image' => 'required',
+    'abstract' => 'required',
+    'minimage' => 'required',
+    'published' => 'required',
+    'color' => 'required',
+    'author' => 'required',
+]);
+
+if ($validator->fails()) {
+    Session::flash('create_category_error', "true");
+    return Redirect::back()->withInput($request->input())->withErrors($validator);
+}
+
+publication::create($request->post());
+
+return redirect()->route('publications.index')->with('success', 'La publicaci車n ha sido creada satisfactoriamente');
     }
 
     /**
@@ -119,7 +126,36 @@ class PublicationController extends Controller
     */
     public function update(Request $request, publication $publication)
     {
-        $request->validate([
+              if ($request->hasFile('image2')) {
+    $file = $request->file('image2');
+    
+    // Validate the file type and size
+    $validator = Validator::make(
+        ['image2' => $file],
+        ['image2' => 'required|image|mimes:jpeg,png,jpg,gif'] // Adjust the allowed file types and size as needed
+    );
+
+    if ($validator->fails()) {
+        // Handle validation errors for the image
+        return Redirect::back()->withInput($request->input())->withErrors($validator);
+    }
+
+    $extention = $file->getClientOriginalExtension();
+    $filename = time() . '.' . $extention;
+
+    try {
+        $file->move(public_path('/images/publications_images'), $filename);
+    } catch (Exception $e) {
+        Log::error($e->getMessage());
+        // Handle the exception and return an error response
+    }
+
+    // Update the request data using the ->merge() method
+    $request['image'] = $filename;
+    //dd($request);
+              }
+
+        $validator = Validator::make(request()->all(), [
             'name' => 'required',
             'slug' => 'required',
             'body' => 'required',
@@ -130,6 +166,10 @@ class PublicationController extends Controller
             'color' => 'required',
             'author' => 'required',
         ]);
+        
+        if ($validator->fails()) {
+            return Redirect::back()->withInput($request->input())->withErrors($validator); // Set the error message
+        }
 
         $publication->fill($request->post())->save();
 
