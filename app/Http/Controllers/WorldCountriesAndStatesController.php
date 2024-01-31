@@ -18,16 +18,16 @@ class WorldCountriesAndStatesController extends Controller
     }
 
     public function publications($id)
-    {
+    {   
+        Log::info('id is: ' . $id);
         $publications = publication::orderBy('id','desc')->paginate(5);
         $publicationSelected= Publication::where('id', $id)->get();
         return view('blog', compact('publications'), compact('publicationSelected'));
     }
 
-    public function publicationsBySlug(Request $request,$slug)
+    public function publicationsBySlug($slug)
     {
-        $id = request('id');
-        Log::info('Id: ' . $id);
+        Log::info('slug is: ' . $slug);
         $publications = publication::orderBy('id','desc')->paginate(5);
         $publicationSelected= Publication::where('slug', $slug)->get();
         return view('blog', compact('publications'), compact('publicationSelected'));

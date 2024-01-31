@@ -148,8 +148,8 @@
                 </div>
                 <div class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                     @foreach ($publications as $publication)
-                    <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :slug="$publication->slug" />
-                    @endforeach
+                    <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" :createdAt="$publication->published" :slug="$publication->slug"/>
+                    @endforeach 
                 </div>
                 <div class="flex justify-center place-content-center p-6">
                     {!!$publications->links('vendor.pagination.agroamigable')!!}

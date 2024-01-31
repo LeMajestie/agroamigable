@@ -75,7 +75,7 @@ class PublicationController extends Controller
 
 $validator = Validator::make($request->all(), [
     'name' => 'required',
-    'slug' => 'required',
+    'slug' => 'required|unique:publications,slug',
     'body' => 'required',
     'image' => 'required',
     'abstract' => 'required',

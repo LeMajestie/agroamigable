@@ -1,4 +1,4 @@
-<a href="/Blag/{{ $slug }}" class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<a href="/blog/{{ $slug }}" class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
     <div class="w-full h-36">
         <div class="bg-green-300 w-full h-1/2">
         <img class="object-cover h-full w-full" src="/images/publications_images/{{ $image }}">

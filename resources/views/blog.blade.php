@@ -69,10 +69,14 @@
     </div>
     <x-agroamigable.boxes.invitation></x-agroamigable.boxes.invitation>
     <div class="main-title text-slate-400 text-5xl text-left p-6 lg:px-24">Otros artículos
+        <div class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+            @foreach ($publications as $publication)
+            <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" :createdAt="$publication->published" :slug="$publication->slug" />
+            @endforeach
+        </div>
+        <div class="flex justify-center place-content-center p-6">
+            {!!$publications->links('vendor.pagination.agroamigable')!!}
+        </div>
     </div>
-    <div class="p-6 lg:px-24 blog-articles lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"">
-        @foreach ($publications as $publication)
-            <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :slug="$publication->slug" />
-        @endforeach
-    </div>
+
 </body>

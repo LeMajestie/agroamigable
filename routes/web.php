@@ -26,9 +26,9 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/Blog/{id}', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publications']);
+Route::get('/blog/{slug}', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publicationsBySlug']);
 
-Route::get('/Blag/{slug}', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publicationsBySlug']);
+Route::get('/Blog/{id}', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publications']);
 
 Route::get('/', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'home']);
 
