@@ -116,7 +116,7 @@
                     <x-agroamigable.boxes.testimony witness="Luis Fernando Pérez de Buga" location="Valle, Colombia" body="Hizo el proceso de
                                     diversificación escalonada de café, inicialmente a Plátano y banano. Hoy su Granja
                                     Villa del Lago en la Verada Monterrey es un ejemplo de diversificación y
-                                    competitividad." imageUrl="/images/PHOTO-2023-06-07-21-00-39.jpg" videoUrl="https://www.youtube.com/embed/aumZYzr8czs">
+                                    competitividad." imageUrl="/images/PHOTO-2023-06-07-21-00-39.jpg" videoUrl="https://www.youtube.com/embed/GIiJ9NWGPnc?si=MD44cjKlgK5hhRDi">
                     </x-agroamigable.boxes.testimony>
                 </div>
                 <div class="lg:w-1/2">
