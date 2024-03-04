@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use WisdomDiala\Countrypkg\Models\Country;
 use WisdomDiala\Countrypkg\Models\State;
 use App\Models\Publication;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Log; 
 
 class WorldCountriesAndStatesController extends Controller
@@ -28,9 +29,13 @@ class WorldCountriesAndStatesController extends Controller
     public function publicationsBySlug($slug)
     {
         Log::info('slug is: ' . $slug);
-        $publications = publication::orderBy('id','desc')->paginate(5);
+        $publications = publication::orderBy('id','desc')->paginate(5, ['*'],'publications');
         $publicationSelected= Publication::where('slug', $slug)->get();
-        return view('blog', compact('publications'), compact('publicationSelected'));
+        $comments= Comment::where('slug', $slug)->get();
+        $comments_paginated=Comment::where('slug', $slug)->orderBy('id','desc')->paginate(3,['*'], 'comments_paginated');
+        Log::info('comments are: ' . $comments);
+        Log::info('comments paginated are: ' . $comments_paginated);
+        return view('blog', compact('publications', 'publicationSelected', 'comments_paginated'));
     }
 
 

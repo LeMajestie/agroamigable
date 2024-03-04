@@ -24,11 +24,13 @@ class CommentController extends Controller
             'email' => 'required',
             'name' => 'required',
             'comment' => 'required',
+            'blogid' => 'required',
+            'slug' => 'required',
         ]);
 
         Comment::create($request->post());
-
-        return redirect()->route('comments.index')->with('success', 'Comment has been created successfully.');
+        
+        return response()->download(public_path('/AgroAmigable.pdf'));
     }
 
     public function show(Comment $comment)
@@ -47,6 +49,8 @@ class CommentController extends Controller
             'email' => 'required',
             'name' => 'required',
             'comment' => 'required',
+            'blogid' => 'required',
+            'slug' => 'required',
         ]);
 
         $comment->fill($request->post())->save();

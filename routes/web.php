@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,8 @@ Route::resource('publications', PublicationController::class);
 Route::get('/show-flash-variable', [App\Http\Controllers\BookController::class, 'getDownload']);
 
 Route::resource('books', BookController::class);
+
+Route::resource('comments', CommentController::class);
 
 Route::get('/blog', function () {
     return view('blog.index');
