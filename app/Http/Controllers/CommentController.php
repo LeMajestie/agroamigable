@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Comment;
 
@@ -30,7 +29,7 @@ class CommentController extends Controller
 
         Comment::create($request->post());
         
-        return response()->download(public_path('/AgroAmigable.pdf'));
+        return redirect('/blog/'. $request->slug.'#comments-section');
     }
 
     public function show(Comment $comment)

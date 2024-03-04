@@ -69,7 +69,7 @@
         <x-agroamigable.boxes.invitation></x-agroamigable.boxes.invitation>
     </div>
     <!-- FORM: COMMENT -->
-    <div class="w-full py-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 flex flex-col lg:flex-row gap-8 ">
+    <div id="comments-section" class="w-full py-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 flex flex-col lg:flex-row gap-8 ">
         <form action="{{ route('comments.store') }}" method="POST" enctype="multipart/form-data" class="w-full lg:w-1/3 bg-white border-2 border-lime-c100 flex flex-col shadow-lg rounded-xl p-6 gap-2 place-content-center">
             @csrf
             <div>
@@ -112,10 +112,10 @@
         <div class="w-full lg:w-2/3 bg-white">
             <div class="text-lg lg:text-xl font-bold text-center">Comentarios</div>
             @foreach ($comments_paginated as $comment_paginated)
-            <x-agroamigable.boxes.comment :name=" $comment_paginated->name" :comment="$comment_paginated->comment" />
+            <x-agroamigable.boxes.comment :name=" $comment_paginated->name" :comment="$comment_paginated->comment" :date="$comment_paginated->created_at"/>
             @endforeach
             <div class="flex justify-center place-content-center p-6">
-                {!!$comments_paginated->links('vendor.pagination.agroamigable')!!}
+                {!!$comments_paginated->links('vendor.pagination.agroamigable-comments')!!}
             </div>
         </div>
     </div>

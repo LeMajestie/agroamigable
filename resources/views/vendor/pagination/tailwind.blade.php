@@ -26,7 +26,7 @@
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
                 <p class="text-lg text-gray-700 leading-5">
-                    {!! __('Mostrando del') !!}
+                    {!! __('Mostrandos del') !!}
                     @if ($paginator->firstItem())
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>
                         {!! __('al') !!}
