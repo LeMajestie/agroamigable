@@ -55,7 +55,7 @@
                 </div>
                 <div>
                     <label for="comment" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Comentario</label>
-                    <input placeholder="¡Déjanos aquí tu comentario!" type="text" name="comment" value="{{ old('comment') }}" class="w-full text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                    <textarea placeholder="¡Déjanos aquí tu comentario!" rows="5" cols="70" type="text" name="comment" value="{{ old('comment') }}" class="w-full text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"></textarea>
                     @error('comment')
                     <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
                     @enderror
@@ -78,17 +78,21 @@
             </form>
             <div class="w-full lg:w-2/3 bg-white">
                 <div class="text-lg lg:text-xl font-bold text-center">Comentarios</div>
+                @if ($comments_paginated->isEmpty())
+                <p class=" text-center align-middle pt-12">¡Sé el primero en comentar!</p>
+                @else
                 @foreach ($comments_paginated as $comment_paginated)
-                <x-agroamigable.boxes.comment :name=" $comment_paginated->name" :comment="$comment_paginated->comment" :date="$comment_paginated->created_at" />
+                <x-agroamigable.boxes.comment :name="$comment_paginated->name" :comment="$comment_paginated->comment" :date="$comment_paginated->created_at" />
                 @endforeach
                 <div class="flex justify-center place-content-center p-6">
-                    {!!$comments_paginated->links('vendor.pagination.agroamigable-comments')!!}
+                    {!! $comments_paginated->links('vendor.pagination.agroamigable-comments') !!}
                 </div>
+                @endif
             </div>
         </div>
         <!-- FORM: END -->
         <!-- OTHER ARTICLES SECTION -->
-        <div class="main-title text-slate-400 text-5xl text-left">Otros artículos
+        <div class="main-title text-slate-400 text-5xl text-left pt-12">Otros artículos
             <div class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                 @foreach ($publications as $publication)
                 <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" :createdAt="$publication->published" :slug="$publication->slug" />

@@ -1,4 +1,4 @@
-<div class="bg-white shadow-xl rounded-xl flex flex-col items-center justify-around p-6 border-2 border-lime-c100">
+<div class="bg-white shadow-xl rounded-xl flex flex-col items-center justify-around p-6 mt-12 border-2 border-lime-c100">
     <p class="text-center py-4 text-lg">Si usted desea más información, asesoría o algún otro servicio, contáctenos:</p>
     <div class="flex flex-col lg:flex-row items-center px-8 py-4 gap-8 lg:gap-16 justify-around">
         <a href="mailto:info@agroamigable.co">
