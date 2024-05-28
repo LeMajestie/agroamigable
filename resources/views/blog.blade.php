@@ -12,22 +12,34 @@
             border-radius: 25px;
         }
     </style>
+    <title class="text-2xl lg:text-5xl text-left">{{ $publicationSelected[0]->name }}
+    </title>
+    <meta name="description" content="{{ $publicationSelected[0]->name }}" />
+    <meta property="og:title" content="{{ $publicationSelected[0]->name }}" />
+    <meta property="og:url" content="https://www.agroamigable.co" />
+    <meta property="og:description" content="{{ $publicationSelected[0]->author }}" />
+    <meta property="og:image" content="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}" />
 </head>
 
 <body class="">
     <x-agroamigable.sections.navbarblog></x-agroamigable.sections.navbarblog>
-    <div class="pt-12 sm:px-32 md:px-32 lg:px-32 xl:px-48">
-        <div class="main-title text-black text-2xl lg:text-5xl text-left">{{ $publicationSelected[0]->name }}
-        </div>
-        <center class="pt-10">
+    <div class="pt-12 px-6 sm:px-32 md:px-32 lg:px-32 xl:px-48">
+        <title class="text-2xl lg:text-5xl text-left">{{ $publicationSelected[0]->name }}
+        </title>
+        <meta name="description" content="{{ $publicationSelected[0]->name }}" />
+        <meta property="og:title" content="{{ $publicationSelected[0]->name }}" />
+        <meta property="og:url" content="https://www.example.com/webpage/" />
+        <meta property="og:description" content="Contenido para el campo y la agricultura" />
+        <meta property="og:image" content="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}" />
+        <center class="py-10">
             <div class="box shadow-lg overflow-hidden">
                 <img class="object-cover h-full w-full" src="{{ url('/images/publications_images/' . $publicationSelected[0]->image) }}" alt="Imagen referente a la agricultura relacionada con la publicación">
             </div>
         </center>
-        <div class=" text-slate-400 text-left p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 border-t border-b">
+        <div class=" text-slate-400 text-left p-2 sm:px-32 md:px-32 lg:px-32 xl:px-48 border-t border-b text-xs lg:text-sm">
             Publicado {{ $publicationSelected[0]->created_at }}
         </div>
-        <div class=" text-slate-400 text-left p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 border-t border-b">{{ $publicationSelected[0]->author }}
+        <div class=" text-slate-400 text-left p-2 sm:px-32 md:px-32 lg:px-32 xl:px-48 border-t border-b text-xs lg:text-sm">{{ $publicationSelected[0]->author }}
         </div>
         <div class="text-black hidden lg:block text-3xl text-left p-6 sm:px-28 md:px-28 lg:px-28 xl:px-40">{{ $publicationSelected[0]->name }}
         </div>
@@ -92,7 +104,7 @@
         </div>
         <!-- FORM: END -->
         <!-- OTHER ARTICLES SECTION -->
-        <div class="main-title text-slate-400 text-5xl text-left pt-12">Otros artículos
+        <div class="main-title text-slate-400 text-2xl lg:text-5xl text-left py-6 lg:py-12">Otros artículos
             <div class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                 @foreach ($publications as $publication)
                 <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" :createdAt="$publication->published" :slug="$publication->slug" />

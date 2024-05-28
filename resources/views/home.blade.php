@@ -33,7 +33,7 @@
         <div id="landing style" class="bg-gradient-to-br from-white from-10% via-lime-c100 to-lime-c100">
             <!-- SECTION: LANDING -->
             <div class="first landing h-auto">
-                <img class="absolute top-0 right-0 h-max w-auto" src="{{ url('/images/homedesing.png') }}" alt="Image" />
+                <img class="hidden lg:block absolute top-0 right-0 h-max w-auto" src="{{ url('/images/homedesing.png') }}"/>
                 <x-navbar></x-navbar>
                 <div id="landing" class="p-6 pt-0 sm:px-32 md:px-32 lg:px-32 xl:px-48">
                     <div class="flex w-full">
@@ -148,8 +148,8 @@
                 </div>
                 <div class="blog-articles p-0 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                     @foreach ($publications as $publication)
-                    <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" :createdAt="$publication->published" :slug="$publication->slug"/>
-                    @endforeach 
+                    <x-publications-showcase :name=" $publication->name" :image="$publication->image" :abstract="$publication->abstract" :id="$publication->id" :createdAt="$publication->published" :slug="$publication->slug" />
+                    @endforeach
                 </div>
                 <div class="flex justify-center place-content-center p-6">
                     {!!$publications->links('vendor.pagination.agroamigable')!!}
