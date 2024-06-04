@@ -21,9 +21,9 @@ Route::resource('books', BookController::class);
 
 Route::resource('comments', CommentController::class);
 
-Route::get('/blog', function () {
-    return view('blog.index');
-});
+Route::get('/blog', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publicationsShowcase']);
+
+Route::get('/blogs/{categories}', [App\Http\Controllers\WorldCountriesAndStatesController::class, 'publicationsShowcaseCategory']);
 
 Route::get('/test', function () {
     return view('test');

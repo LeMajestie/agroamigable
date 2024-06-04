@@ -4,14 +4,14 @@
         
     </div>
 </div>
-<div class="relative z-50 navbar w-full lg:h-auto h-24 flex justify-between items-center p-4 lg:p-8 sm:px-32 md:px-32 lg:px-32 xl:px-48 text-lime-c900 text-2xl font-thin">
+<div class="relative z-50 navbar w-full lg:h-auto h-24 flex justify-between items-center p-4 lg:p-8 sm:px-32 md:px-32 lg:px-32 xl:px-48 text-lime-c900 text-xl font-thin">
     <img class="h-auto w-1/2 md:w-1/4" src="{{ url('/images/Logo AgroAmigable_-12 1.png') }}" alt="Image" />
     <a class="hidden lg:block" href="{{ route('dashboard') }}"> Nosotros</a>
     <a class="hidden lg:block" href="{{ route('dashboard') }}"> Servicios</a>
-    <a class="hidden lg:block" href="{{ route('dashboard') }}"> Blog</a>
+    <a class="hidden lg:block" href="/blog"> Blog</a>
     <a class="hidden lg:block" href="http://www.agroamigable.co:2096/"> Email</a>
     <div class="hidden lg:block">
-        <x-agroamigable.buttons.orange-button href="route('dashboard')" label="Reservar cita ahora"></x-agroamigable.buttons.orange-button>
+        <x-agroamigable.buttons.button href="route('dashboard')" label="Reservar cita ahora" bgColor="bg-lime-c900" borderColor="border-lime-c900" hoverBgColor="hover:bg-opacity-0" hoverTextColor="hover:text-lime-c900" textColor="text-white"></x-agroamigable.buttons.orange-button>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 

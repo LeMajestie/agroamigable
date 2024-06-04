@@ -18,6 +18,20 @@ class WorldCountriesAndStatesController extends Controller
         return view('home', compact('countries'), compact('publications'));
     }
 
+    public function publicationsShowcase()
+    {   
+        $publications = publication::orderBy('id','desc')->paginate(5);
+        return view('blogshowcase', compact('publications'));
+    }
+
+    public function publicationsShowcaseCategory($category)
+    {   
+        $publications = publication::where('category', $category)
+                           ->orderBy('id','desc')
+                           ->paginate(5);
+        return view('blogshowcase', compact('publications'));
+    }
+
     public function publications($id)
     {   
         Log::info('id is: ' . $id);
