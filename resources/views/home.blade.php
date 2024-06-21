@@ -9,6 +9,9 @@
 </head>
 
 <body x-data="{ selectedDownloadBookButton: '' }">
+
+
+
     <script type="text/javascript">
         {
             var abierto2 = false;
@@ -26,14 +29,18 @@
     <script type="text/javascript">
         {
             console.log("debe estar abierto es:" + abierto2);
+            var countries = "cargando países";
+            console.log("los paises son: " + countries);
         }
     </script>
+
+
 
     <div x-data="{ modelOpen: abierto2 }">
         <div id="landing style" class="bg-gradient-to-br from-white from-10% via-lime-c100 to-lime-c100">
             <!-- SECTION: LANDING -->
             <div class="first landing h-auto">
-                <img class="hidden lg:block absolute top-0 right-0 h-max w-auto" src="{{ url('/images/homedesing.png') }}"/>
+                <img class="hidden lg:block absolute top-0 right-0 h-max w-auto" src="{{ url('/images/homedesing.png') }}" />
                 <x-navbar></x-navbar>
                 <div id="landing" class="p-6 pt-0 sm:px-32 md:px-32 lg:px-32 xl:px-48">
                     <div class="flex w-full">
@@ -61,8 +68,9 @@
             </div>
             <!-- END SECTION: LANDING -->
             <!-- SECTION: BOOK -->
+
             <div class="bg-lime-c900 p-6 sm:px-32 md:px-32 lg:px-32 xl:px-48 relative z-50 md:flex md:items-center md:justify-center lg:flex lg:items-center lg:justify-center w-full">
-                <img class="lg:w-1/3 scale-150 lg:scale-150 py-10 center" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}" alt="Image" />
+                <img class="lg:w-1/3 md:scale-150 lg:py-10 center" src="{{ url('/images/Portada_AGRO_AMIGABLE_1.png') }}" alt="Image" />
                 <div class="lg:w-2/3">
                     <x-agroamigable.text-structures.article flexalignment="justify-center lg:justify-end" alignment="text-center lg:text-right" color="text-lime-300" hashtag="Descarga el libro
                 digital y gratuito" title="Agro
@@ -73,7 +81,6 @@
                 múltiples países de Hispano América.">
                     </x-agroamigable.text-structures.article>
                     <div class="buttons flex justify-around p-4">
-
                         <button @click="modelOpen =!modelOpen" class="rounded-full border-2 bg-orange-c500 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4">
                             <span>Descargar Libro
                             </span>
@@ -100,7 +107,8 @@
                     </div>
 
                 </div>
-                <div class="lg:w-1/2"><img class="relative bottom-0 scale-150" src="{{ url('/images/autors.png') }}" alt="Image" />
+                <div class="lg:w-1/2">
+                    <img class="relative bottom-0 md:scale-125 lg:scale-150" src="{{ url('/images/autors.png') }}" alt="Image" />
                 </div>
             </div>
         </div>
@@ -205,12 +213,10 @@
                 </div>
             </div>
         </div>
-
         <div class="hidden lg:block">
             <div class="sub-footer-agroamigable-lg bg-lime-c100 w-full flex justify-around items-center p-8 border-lime-c900 text-lime-c900">
                 <div class="copyright hidden lg:block text-lg lg:text-lg">
                     Copyright © 2023 Designed by Biosens Lab & Dustrad Technologies | All Rights Reserved
-
                 </div>
                 <div class="hidden lg:block">
                     <div class="flex items-center justify-center">
@@ -260,95 +266,11 @@
         </div>
 
         <!-- FORM: BOOK -->
-        <div x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
-                <div x-cloak @click="modelOpen = false" x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true">
-                </div>
-
-                <div x-cloak x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
-                    <div class="flex items-center justify-between space-x-4">
-                        <h1 class="main-title py-2 text-lime-c900 font-bold text-3xl text-center border-b border-orange-c500">
-                            Descarga GRATIS nuestro libro.</h1>
-
-                        <button @click="modelOpen = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <div>
-                                <label for="name" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Nombre
-                                    completo</label>
-                                <input placeholder="Maria Dolores" name="name" value="{{ old('name') }}" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                @error('name')
-                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="mt-4">
-                                <label for="email" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Email</label>
-                                <input placeholder="mariadolores@gmail.com" type="email" id="email" name="email" value="{{ old('email') }}" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                @error('email')
-                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="mt-4">
-                                <label for="phone" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Teléfono</label>
-                                <input placeholder="" type="number" name="phone" value="{{ old('phone') }}" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                @error('phone')
-                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="mt-4">
-                                <label for="country" class="block text-sm text-gray-700 capitalize dark:text-gray-200">País</label>
-                                <select name="country" id="country" class="country block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="Seleccione país">
-                                    <option selected="" value="">Seleccione País</option>
-                                    @foreach ($countries as $country)
-                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('country')
-                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="mt-4">
-                                <label for="state" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Región</label>
-                                <select name="region" id="region" class="region block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" placeholder="Seleccione región">
-                                    <option selected="" value="">Seleccione Región</option>
-                                </select>
-                                @error('region')
-                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="mt-4">
-                                <label for="ciudad" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Ciudad</label>
-                                <input placeholder="" name="city" value="{{ old('city') }}" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-lime-c100 border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                @error('city')
-                                <x-incomplete-form-error :message="$message"></x-incomplete-form-error>
-                                @enderror
-                            </div>
-
-                        </div>
-                        <div class="flex justify-end mt-6">
-                            <button type="submit" class="rounded-full border-2 bg-orange-c500 border-orange-c500 hover:bg-transparent hover:text-orange-c500 text-white text-xl p-4">
-                                Descargar Libro
-                            </button>
-                        </div>
-                    </form>
-                </div>
+        <div x-show="modelOpen" class="fixed inset-0 z-50 p-6">
+            <div x-cloak @click="modelOpen = false" x-show="modelOpen" class="fixed inset-0 transition-opacity bg-slate-500 bg-opacity-40">
+            </div>
+            <div x-cloak @click="modelOpen">
+                <x-agroamigable.forms.downloadbookform :countries="$countries"></x-agroamigable.forms.downloadbookform>
             </div>
         </div>
     </div>
@@ -385,6 +307,8 @@
             }
         });
     </script>
+
+
 </body>
 
 <script type="text/javascript">
@@ -400,6 +324,11 @@
         contador = contador + 1;
         console.log("botón cliqueado fue:" + idClicked + ",botón actual es:" + idItself + "y se ha activado " + contador + " veces.");
     }
+</script>
+
+
+<script>
+
 </script>
 
 </html>
